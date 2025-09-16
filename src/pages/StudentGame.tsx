@@ -20,6 +20,10 @@ const StudentGame = () => {
   const [gameState, setGameState] = useState<'playing' | 'completed' | 'video'>('playing');
   const [score, setScore] = useState(0);
   const [showConfetti, setShowConfetti] = useState(false);
+  // Game-specific state hooks - moved to top level
+  const [selectedSlices, setSelectedSlices] = useState<number>(0);
+  const [targetFraction, setTargetFraction] = useState({ numerator: 1, denominator: 4 });
+  const [droppedItems, setDroppedItems] = useState<string[]>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -103,9 +107,6 @@ const StudentGame = () => {
   };
 
   const renderFractionsGame = () => {
-    const [selectedSlices, setSelectedSlices] = useState<number>(0);
-    const [targetFraction, setTargetFraction] = useState({ numerator: 1, denominator: 4 });
-
     const handleSliceClick = (slices: number) => {
       setSelectedSlices(slices);
       if (slices === targetFraction.numerator) {
@@ -161,7 +162,6 @@ const StudentGame = () => {
   };
 
   const renderFoodChainGame = () => {
-    const [droppedItems, setDroppedItems] = useState<string[]>([]);
     const correctOrder = ['Sun', 'Plant', 'Rabbit', 'Fox'];
     const items = ['Fox', 'Plant', 'Sun', 'Rabbit'];
 
