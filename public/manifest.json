@@ -1,0 +1,26 @@
+{
+  "name": "RUED - Learn. Play. Lead.",
+  "short_name": "RUED",
+  "description": "A gamified learning platform for rural students",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#6366f1",
+  "theme_color": "#8b5cf6",
+  "orientation": "portrait-primary",
+  "categories": ["education", "games"],
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "512x512",
+      "type": "image/x-icon",
+      "form_factor": "narrow"
+    }
+  ]
+}

@@ -2,41 +2,84 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* RUED Gamified Learning Platform Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base colors */
+    --background: 240 10% 98%;
+    --foreground: 240 10% 15%;
 
+    /* Card and surface colors */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 240 10% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 240 10% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Learning Purple/Blue gradient theme */
+    --primary: 260 60% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 260 60% 70%;
+    --primary-dark: 260 60% 40%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Reward Orange theme */
+    --secondary: 30 90% 60%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 30 90% 75%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Subject colors */
+    --physics: 210 100% 60%;
+    --chemistry: 120 60% 50%;
+    --biology: 30 85% 55%;
+    --mathematics: 280 60% 60%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Success and achievement colors */
+    --success: 120 60% 50%;
+    --success-foreground: 0 0% 100%;
+    --warning: 45 90% 60%;
+    --warning-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Gamification colors */
+    --xp: 280 60% 60%;
+    --coins: 45 90% 60%;
+    --badge-gold: 45 90% 60%;
+    --badge-silver: 0 0% 75%;
+    --badge-bronze: 25 60% 50%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Neutral colors */
+    --muted: 240 10% 95%;
+    --muted-foreground: 240 5% 45%;
+    --accent: 260 40% 95%;
+    --accent-foreground: 260 60% 30%;
 
-    --radius: 0.5rem;
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 10% 90%;
+    --input: 240 10% 95%;
+    --ring: 260 60% 55%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+    --gradient-subject-physics: linear-gradient(135deg, hsl(var(--physics)), hsl(210 100% 70%));
+    --gradient-subject-chemistry: linear-gradient(135deg, hsl(var(--chemistry)), hsl(120 60% 65%));
+    --gradient-subject-biology: linear-gradient(135deg, hsl(var(--biology)), hsl(30 85% 70%));
+    --gradient-subject-mathematics: linear-gradient(135deg, hsl(var(--mathematics)), hsl(280 60% 75%));
+    --gradient-reward: linear-gradient(135deg, hsl(var(--badge-gold)), hsl(var(--coins)));
+
+    /* Shadows */
+    --shadow-card: 0 4px 20px hsl(var(--primary) / 0.1);
+    --shadow-button: 0 6px 20px hsl(var(--primary) / 0.25);
+    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +144,102 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Hero button styles */
+  .btn-hero {
+    @apply bg-gradient-to-r from-primary to-secondary text-white font-bold py-4 px-8 rounded-xl shadow-[var(--shadow-button)] transition-all duration-300 hover:scale-105 hover:shadow-[var(--shadow-glow)] active:scale-95;
+  }
+
+  /* Subject card styles */
+  .card-physics {
+    @apply bg-gradient-to-br from-physics to-blue-400 text-white;
+  }
+  
+  .card-chemistry {
+    @apply bg-gradient-to-br from-chemistry to-green-400 text-white;
+  }
+  
+  .card-biology {
+    @apply bg-gradient-to-br from-biology to-orange-400 text-white;
+  }
+  
+  .card-mathematics {
+    @apply bg-gradient-to-br from-mathematics to-purple-400 text-white;
+  }
+
+  /* Gamification elements */
+  .xp-badge {
+    @apply bg-gradient-to-r from-xp to-purple-400 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg;
+  }
+
+  .coins-badge {
+    @apply bg-gradient-to-r from-coins to-yellow-400 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg;
+  }
+
+  /* Animations */
+  .animate-bounce-gentle {
+    animation: bounce-gentle 2s infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s infinite;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.5s ease-out;
+  }
+}
+
+@layer utilities {
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+}
+
+/* Custom keyframes */
+@keyframes bounce-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 40px hsl(var(--primary) / 0.6);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
