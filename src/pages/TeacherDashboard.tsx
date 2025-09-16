@@ -85,9 +85,9 @@ const TeacherDashboard = () => {
 
   const exportData = () => {
     const csvContent = [
-      "Name,Class,XP,Coins,Badges,Completed Chapters",
+      "Name,Class,XP,Coins,Badges,Completed Chapters,Games Completed",
       ...students.map(student => 
-        `"${student.name}",${student.class},${student.xp},${student.coins},"${student.badges.join(', ')}","${student.completedChapters.join(', ')}"`
+        `"${student.name}",${student.class},${student.xp},${student.coins},"${student.badges.join(', ')}","${student.completedChapters.join(', ')}",${student.completedChapters.length * 2}`
       )
     ].join('\n');
 
@@ -149,7 +149,7 @@ const TeacherDashboard = () => {
         </div>
 
         {/* Stats Overview */}
-        <div className="grid md:grid-cols-4 gap-6 mb-12">
+        <div className="grid md:grid-cols-5 gap-6 mb-12">
           <Card className="p-6 bg-white/10 backdrop-blur-sm border-0">
             <div className="flex items-center justify-between">
               <div>
@@ -179,6 +179,18 @@ const TeacherDashboard = () => {
                 </p>
               </div>
               <BookOpen className="w-8 h-8 text-white/60" />
+            </div>
+          </Card>
+
+          <Card className="p-6 bg-white/10 backdrop-blur-sm border-0">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-white/80 text-sm">Games Completed</p>
+                <p className="text-3xl font-bold text-white">
+                  {students.reduce((sum, s) => sum + (s.completedChapters.length * 2), 0)}
+                </p>
+              </div>
+              <span className="w-8 h-8 text-2xl">🎮</span>
             </div>
           </Card>
 

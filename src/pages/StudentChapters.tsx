@@ -27,7 +27,7 @@ const subjectData = {
         name: "Light",
         description: "Learn about reflection, refraction, and how light travels",
         videoId: "dQw4w9WgXcQ", // Demo YouTube ID
-        games: ["reflection-game", "refraction-puzzle", "light-quiz"],
+        games: ["light-reflection-maze", "refraction-puzzle", "light-quiz"],
         difficulty: "Easy",
         xpReward: 100
       },
@@ -36,7 +36,7 @@ const subjectData = {
         name: "Electricity",
         description: "Understand circuits, current, and electrical safety",
         videoId: "dQw4w9WgXcQ",
-        games: ["circuit-builder", "current-flow", "safety-quiz"],
+        games: ["electric-circuit-builder", "current-flow", "safety-quiz"],
         difficulty: "Medium",
         xpReward: 150
       },
@@ -80,7 +80,7 @@ const subjectData = {
         name: "Mixtures", 
         description: "Understand different types of mixtures and separation",
         videoId: "dQw4w9WgXcQ",
-        games: ["mixture-sorter", "separation-methods", "mixture-quiz"],
+        games: ["mixture-sorter", "periodic-table-puzzle", "mixture-quiz"],
         difficulty: "Medium",
         xpReward: 150
       }
@@ -106,7 +106,7 @@ const subjectData = {
         name: "Plants",
         description: "Learn about plant parts, photosynthesis, and growth",
         videoId: "dQw4w9WgXcQ", 
-        games: ["plant-parts", "photosynthesis-game", "plant-quiz"],
+        games: ["cell-explorer", "photosynthesis-game", "plant-quiz"],
         difficulty: "Medium",
         xpReward: 150
       }
@@ -132,7 +132,7 @@ const subjectData = {
         name: "LCM & HCF",
         description: "Learn to find LCM and HCF using different methods",
         videoId: "dQw4w9WgXcQ",
-        games: ["factor-finder", "multiple-match", "lcm-hcf-quiz"],
+        games: ["lcm-hcf-puzzle", "equation-balancer", "lcm-hcf-quiz"],
         difficulty: "Medium",
         xpReward: 150
       }
