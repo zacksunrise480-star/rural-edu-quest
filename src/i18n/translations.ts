@@ -1,0 +1,271 @@
+export const translations = {
+  en: {
+    // Landing Page
+    welcome: "Welcome to RUED",
+    tagline: "Learn. Play. Lead.",
+    description: "A gamified learning platform designed for rural students. Learn through interactive games, earn rewards, and track your progress while having fun!",
+    studentPortal: "Student Portal",
+    teacherPortal: "Teacher Portal",
+    studentPortalDesc: "Access interactive lessons, play educational games, and earn XP points and badges!",
+    teacherPortalDesc: "Monitor student progress, view analytics, and manage classroom activities.",
+    games: "Games",
+    videos: "Videos", 
+    rewards: "Rewards",
+    leaderboard: "Leaderboard",
+    analytics: "Analytics",
+    students: "Students",
+    interactiveLearning: "Interactive Learning",
+    interactiveLearningDesc: "Engaging content for all subjects",
+    educationalGames: "Educational Games",
+    educationalGamesDesc: "Learn through play and fun", 
+    rewardsSystem: "Rewards System",
+    rewardsSystemDesc: "Earn XP, coins, and badges",
+    progressTracking: "Progress Tracking",
+    progressTrackingDesc: "Monitor learning achievements",
+    
+    // Student Portal
+    backToHome: "Back to Home",
+    studentPortalTitle: "Student Portal",
+    studentPortalWelcome: "Ready to start your learning journey? Let's get you set up and begin exploring!",
+    letsGetStarted: "Let's Get Started!",
+    interactiveGames: "Interactive Games",
+    interactiveGamesDesc: "Play engaging games for each chapter",
+    videoLessons: "Video Lessons", 
+    videoLessonsDesc: "Watch YouTube videos to learn concepts",
+    earnRewards: "Earn Rewards",
+    earnRewardsDesc: "Collect XP points, coins, and badges",
+    chooseSubjects: "Choose from 4 subjects: Physics, Chemistry, Biology & Mathematics",
+    
+    // Student Name
+    enterName: "What's your name?",
+    nameInputPlaceholder: "Enter your name here...",
+    selectClass: "Select your class",
+    continueButton: "Continue",
+    
+    // Subjects
+    chooseSubject: "Choose Your Subject",
+    chooseSubjectDesc: "Select a subject to start learning and playing games!",
+    physics: "Physics",
+    chemistry: "Chemistry", 
+    biology: "Biology",
+    mathematics: "Mathematics",
+    
+    // Chapters
+    chapters: "Chapters",
+    watchVideo: "Watch Video",
+    playGame: "Play Game",
+    completed: "Completed",
+    
+    // Teacher Portal
+    teacherDashboard: "Teacher Dashboard",
+    teacherPortalTitle: "Teacher Portal",
+    teacherWelcome: "Welcome to the Teacher Portal! Access your dashboard to monitor student progress and classroom analytics.",
+    accessDashboard: "Access Dashboard",
+    studentAnalytics: "Student Analytics",
+    studentAnalyticsDesc: "Track individual and class performance",
+    dataExport: "Data Export", 
+    dataExportDesc: "Export student progress reports",
+    
+    // Teacher Dashboard
+    welcomeTeacher: "Welcome",
+    totalStudents: "Total Students",
+    averageXP: "Average XP", 
+    totalChapters: "Total Chapters",
+    gamesCompleted: "Games Completed",
+    activeToday: "Active Today",
+    studentLeaderboard: "Student Leaderboard",
+    subjectProgress: "Subject Progress",
+    topPerformer: "Top Performer",
+    exportCSV: "Export CSV",
+    completions: "completions",
+    badges: "badges",
+    back: "Back",
+    
+    // Common
+    xp: "XP",
+    coins: "Coins",
+    class: "Class",
+    subject: "Subject",
+    school: "School"
+  },
+  
+  hi: {
+    // Landing Page
+    welcome: "RUED में आपका स्वागत है",
+    tagline: "सीखें। खेलें। नेतृत्व करें।",
+    description: "ग्रामीण छात्रों के लिए डिज़ाइन किया गया एक गेमिफाइड लर्निंग प्लेटफॉर्म। इंटरैक्टिव गेम्स के माध्यम से सीखें, इनाम कमाएं, और मज़े करते हुए अपनी प्रगति को ट्रैक करें!",
+    studentPortal: "छात्र पोर्टल",
+    teacherPortal: "शिक्षक पोर्टल", 
+    studentPortalDesc: "इंटरैक्टिव पाठों तक पहुंचें, शैक्षिक गेम खेलें, और XP अंक और बैज अर्जित करें!",
+    teacherPortalDesc: "छात्र प्रगति की निगरानी करें, एनालिटिक्स देखें, और कक्षा गतिविधियों का प्रबंधन करें।",
+    games: "गेम्स",
+    videos: "वीडियो",
+    rewards: "इनाम",
+    leaderboard: "लीडरबोर्ड",
+    analytics: "एनालिटिक्स", 
+    students: "छात्र",
+    interactiveLearning: "इंटरैक्टिव लर्निंग",
+    interactiveLearningDesc: "सभी विषयों के लिए आकर्षक सामग्री",
+    educationalGames: "शैक्षिक गेम्स",
+    educationalGamesDesc: "खेल और मज़े के माध्यम से सीखें",
+    rewardsSystem: "इनाम प्रणाली",
+    rewardsSystemDesc: "XP, सिक्के और बैज अर्जित करें",
+    progressTracking: "प्रगति ट्रैकिंग",
+    progressTrackingDesc: "सीखने की उपलब्धियों की निगरानी करें",
+    
+    // Student Portal
+    backToHome: "होम पर वापस",
+    studentPortalTitle: "छात्र पोर्टल",
+    studentPortalWelcome: "अपनी सीखने की यात्रा शुरू करने के लिए तैयार हैं? आइए आपको सेट अप करें और एक्सप्लोर करना शुरू करें!",
+    letsGetStarted: "चलिए शुरू करते हैं!",
+    interactiveGames: "इंटरैक्टिव गेम्स",
+    interactiveGamesDesc: "प्रत्येक अध्याय के लिए आकर्षक गेम खेलें",
+    videoLessons: "वीडियो पाठ",
+    videoLessonsDesc: "अवधारणाएं सीखने के लिए YouTube वीडियो देखें",
+    earnRewards: "इनाम कमाएं",
+    earnRewardsDesc: "XP अंक, सिक्के और बैज इकट्ठा करें",
+    chooseSubjects: "4 विषयों में से चुनें: भौतिकी, रसायन, जीव विज्ञान और गणित",
+    
+    // Student Name
+    enterName: "आपका नाम क्या है?",
+    nameInputPlaceholder: "यहाँ अपना नाम लिखें...",
+    selectClass: "अपनी कक्षा चुनें",
+    continueButton: "जारी रखें",
+    
+    // Subjects
+    chooseSubject: "अपना विषय चुनें",
+    chooseSubjectDesc: "सीखना और गेम खेलना शुरू करने के लिए एक विषय चुनें!",
+    physics: "भौतिकी",
+    chemistry: "रसायन",
+    biology: "जीव विज्ञान",
+    mathematics: "गणित",
+    
+    // Chapters
+    chapters: "अध्याय",
+    watchVideo: "वीडियो देखें",
+    playGame: "गेम खेलें",
+    completed: "पूर्ण",
+    
+    // Teacher Portal
+    teacherDashboard: "शिक्षक डैशबोर्ड",
+    teacherPortalTitle: "शिक्षक पोर्टल",
+    teacherWelcome: "शिक्षक पोर्टल में आपका स्वागत है! छात्र प्रगति और कक्षा एनालिटिक्स की निगरानी के लिए अपने डैशबोर्ड तक पहुंचें।",
+    accessDashboard: "डैशबोर्ड एक्सेस करें",
+    studentAnalytics: "छात्र एनालिटिक्स",
+    studentAnalyticsDesc: "व्यक्तिगत और कक्षा प्रदर्शन को ट्रैक करें",
+    dataExport: "डेटा एक्सपोर्ट",
+    dataExportDesc: "छात्र प्रगति रिपोर्ट एक्सपोर्ट करें",
+    
+    // Teacher Dashboard
+    welcomeTeacher: "स्वागत",
+    totalStudents: "कुल छात्र",
+    averageXP: "औसत XP",
+    totalChapters: "कुल अध्याय",
+    gamesCompleted: "गेम्स पूर्ण",
+    activeToday: "आज सक्रिय",
+    studentLeaderboard: "छात्र लीडरबोर्ड",
+    subjectProgress: "विषय प्रगति",
+    topPerformer: "टॉप परफॉर्मर",
+    exportCSV: "CSV एक्सपोर्ट",
+    completions: "पूर्णताएं",
+    badges: "बैज",
+    back: "वापस",
+    
+    // Common
+    xp: "XP",
+    coins: "सिक्के",
+    class: "कक्षा",
+    subject: "विषय",
+    school: "स्कूल"
+  },
+  
+  or: {
+    // Landing Page
+    welcome: "RUED ରେ ଆପଣଙ୍କୁ ସ୍ୱାଗତ",
+    tagline: "ଶିଖନ୍ତୁ। ଖେଳନ୍ତୁ। ନେତୃତ୍ୱ ଦିଅନ୍ତୁ।",
+    description: "ଗ୍ରାମାଞ୍ଚଳ ଛାତ୍ରଛାତ୍ରୀଙ୍କ ପାଇଁ ଡିଜାଇନ୍ ହୋଇଥିବା ଏକ ଗେମିଫାଇଡ୍ ଲର୍ନିଂ ପ୍ଲାଟଫର୍ମ। ଇଣ୍ଟରାକ୍ଟିଭ୍ ଖେଳ ମାଧ୍ୟମରେ ଶିଖନ୍ତୁ, ପୁରସ୍କାର ଜିତନ୍ତୁ, ଏବଂ ମଜା କରିବା ସହିତ ଆପଣଙ୍କର ପ୍ରଗତି ଟ୍ରାକ୍ କରନ୍ତୁ!",
+    studentPortal: "ଛାତ୍ର ପୋର୍ଟାଲ",
+    teacherPortal: "ଶିକ୍ଷକ ପୋର୍ଟାଲ",
+    studentPortalDesc: "ଇଣ୍ଟରାକ୍ଟିଭ୍ ପାଠ, ଶିକ୍ଷାମୂଳକ ଖେଳ, ଏବଂ XP ପଏଣ୍ଟ ଓ ବ୍ୟାଜ୍ ଅର୍ଜନ କରନ୍ତୁ!",
+    teacherPortalDesc: "ଛାତ୍ର ପ୍ରଗତି ମନିଟର୍ କରନ୍ତୁ, ଆନାଲିଟିକ୍ସ ଦେଖନ୍ତୁ, ଏବଂ ଶ୍ରେଣୀ କାର୍ଯ୍ୟକଳାପ ପରିଚାଳନା କରନ୍ତୁ।",
+    games: "ଖେଳ",
+    videos: "ଭିଡିଓ",
+    rewards: "ପୁରସ୍କାର",
+    leaderboard: "ଲିଡରବୋର୍ଡ",
+    analytics: "ଆନାଲିଟିକ୍ସ",
+    students: "ଛାତ୍ର",
+    interactiveLearning: "ଇଣ୍ଟରାକ୍ଟିଭ୍ ଲର୍ନିଂ",
+    interactiveLearningDesc: "ସମସ୍ତ ବିଷୟ ପାଇଁ ଆକର୍ଷକ ବିଷୟବସ୍ତୁ",
+    educationalGames: "ଶିକ୍ଷାମୂଳକ ଖେଳ",
+    educationalGamesDesc: "ଖେଳ ଏବଂ ମଜା ମାଧ୍ୟମରେ ଶିଖନ୍ତୁ",
+    rewardsSystem: "ପୁରସ୍କାର ବ୍ୟବସ୍ଥା",
+    rewardsSystemDesc: "XP, ମୁଦ୍ରା ଏବଂ ବ୍ୟାଜ୍ ଅର୍ଜନ କରନ୍ତୁ",
+    progressTracking: "ପ୍ରଗତି ଟ୍ରାକିଂ",
+    progressTrackingDesc: "ଶିକ୍ଷଣ ସଫଳତା ମନିଟର୍ କରନ୍ତୁ",
+    
+    // Student Portal
+    backToHome: "ଘରକୁ ଫେରନ୍ତୁ",
+    studentPortalTitle: "ଛାତ୍ର ପୋର୍ଟାଲ",
+    studentPortalWelcome: "ଆପଣଙ୍କର ଶିକ୍ଷଣ ଯାତ୍ରା ଆରମ୍ଭ କରିବାକୁ ପ୍ରସ୍ତୁତ? ଆସନ୍ତୁ ଆପଣଙ୍କୁ ସେଟ୍ ଅପ୍ କରି ଏକ୍ସପ୍ଲୋର୍ କରିବା ଆରମ୍ଭ କରିବା!",
+    letsGetStarted: "ଚାଲନ୍ତୁ ଆରମ୍ଭ କରିବା!",
+    interactiveGames: "ଇଣ୍ଟରାକ୍ଟିଭ୍ ଖେଳ",
+    interactiveGamesDesc: "ପ୍ରତ୍ୟେକ ଅଧ୍ୟାୟ ପାଇଁ ଆକର୍ଷକ ଖେଳ ଖେଳନ୍ତୁ",
+    videoLessons: "ଭିଡିଓ ପାଠ",
+    videoLessonsDesc: "ଧାରଣା ଶିଖିବା ପାଇଁ YouTube ଭିଡିଓ ଦେଖନ୍ତୁ",
+    earnRewards: "ପୁରସ୍କାର ଅର୍ଜନ କରନ୍ତୁ",
+    earnRewardsDesc: "XP ପଏଣ୍ଟ, ମୁଦ୍ରା ଏବଂ ବ୍ୟାଜ୍ ସଂଗ୍ରହ କରନ୍ତୁ",
+    chooseSubjects: "4ଟି ବିଷୟରୁ ବାଛନ୍ତୁ: ପଦାର୍ଥ ବିଜ୍ଞାନ, ରସାୟନ, ଜୀବ ବିଜ୍ଞାନ ଏବଂ ଗଣିତ",
+    
+    // Student Name
+    enterName: "ଆପଣଙ୍କର ନାମ କ'ଣ?",
+    nameInputPlaceholder: "ଏଠାରେ ଆପଣଙ୍କର ନାମ ଲେଖନ୍ତୁ...",
+    selectClass: "ଆପଣଙ୍କର କ୍ଲାସ୍ ବାଛନ୍ତୁ",
+    continueButton: "ଜାରି ରଖନ୍ତୁ",
+    
+    // Subjects
+    chooseSubject: "ଆପଣଙ୍କର ବିଷୟ ବାଛନ୍ତୁ",
+    chooseSubjectDesc: "ଶିଖିବା ଏବଂ ଖେଳ ଖେଳିବା ଆରମ୍ଭ କରିବା ପାଇଁ ଏକ ବିଷୟ ବାଛନ୍ତୁ!",
+    physics: "ପଦାର୍ଥ ବିଜ୍ଞାନ",
+    chemistry: "ରସାୟନ",
+    biology: "ଜୀବ ବିଜ୍ଞାନ",
+    mathematics: "ଗଣିତ",
+    
+    // Chapters
+    chapters: "ଅଧ୍ୟାୟ",
+    watchVideo: "ଭିଡିଓ ଦେଖନ୍ତୁ",
+    playGame: "ଖେଳ ଖେଳନ୍ତୁ",
+    completed: "ସମ୍ପୂର୍ଣ୍ଣ",
+    
+    // Teacher Portal
+    teacherDashboard: "ଶିକ୍ଷକ ଡ୍ୟାସବୋର୍ଡ",
+    teacherPortalTitle: "ଶିକ୍ଷକ ପୋର୍ଟାଲ",
+    teacherWelcome: "ଶିକ୍ଷକ ପୋର୍ଟାଲରେ ସ୍ୱାଗତ! ଛାତ୍ର ପ୍ରଗତି ଏବଂ ଶ୍ରେଣୀ ଆନାଲିଟିକ୍ସ ମନିଟର୍ କରିବା ପାଇଁ ଆପଣଙ୍କର ଡ୍ୟାସବୋର୍ଡ ଆକ୍ସେସ୍ କରନ୍ତୁ।",
+    accessDashboard: "ଡ୍ୟାସବୋର୍ଡ ଆକ୍ସେସ୍ କରନ୍ତୁ",
+    studentAnalytics: "ଛାତ୍ର ଆନାଲିଟିକ୍ସ",
+    studentAnalyticsDesc: "ବ୍ୟକ୍ତିଗତ ଏବଂ ଶ୍ରେଣୀ ପ୍ରଦର୍ଶନ ଟ୍ରାକ୍ କରନ୍ତୁ",
+    dataExport: "ଡାଟା ଏକ୍ସପୋର୍ଟ",
+    dataExportDesc: "ଛାତ୍ର ପ୍ରଗତି ରିପୋର୍ଟ ଏକ୍ସପୋର୍ଟ କରନ୍ତୁ",
+    
+    // Teacher Dashboard
+    welcomeTeacher: "ସ୍ୱାଗତ",
+    totalStudents: "ସମୁଦାୟ ଛାତ୍ର",
+    averageXP: "ହାରାହାରି XP",
+    totalChapters: "ସମୁଦାୟ ଅଧ୍ୟାୟ",
+    gamesCompleted: "ଖେଳ ସମ୍ପୂର୍ଣ୍ଣ",
+    activeToday: "ଆଜି ସକ୍ରିୟ",
+    studentLeaderboard: "ଛାତ୍ର ଲିଡରବୋର୍ଡ",
+    subjectProgress: "ବିଷୟ ପ୍ରଗତି",
+    topPerformer: "ଟପ୍ ପରଫର୍ମର",
+    exportCSV: "CSV ଏକ୍ସପୋର୍ଟ",
+    completions: "ସମାପ୍ତି",
+    badges: "ବ୍ୟାଜ୍",
+    back: "ଫେରନ୍ତୁ",
+    
+    // Common
+    xp: "XP",
+    coins: "ମୁଦ୍ରା",
+    class: "କ୍ଲାସ୍",
+    subject: "ବିଷୟ",
+    school: "ସ୍କୁଲ"
+  }
+};
