@@ -4,6 +4,9 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Zap, Coins, Trophy, BookOpen, PlayCircle } from "lucide-react";
 import { toast } from "sonner";
+import { useLanguage } from "@/contexts/LanguageContext";
+import AnimatedBackground from "@/components/AnimatedBackground";
+import GameHeader from "@/components/GameHeader";
 
 interface StudentData {
   name: string;
@@ -56,6 +59,7 @@ const subjects = [
 const StudentSubjects = () => {
   const [studentData, setStudentData] = useState<StudentData | null>(null);
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   useEffect(() => {
     const stored = localStorage.getItem("rued_student");
@@ -74,39 +78,22 @@ const StudentSubjects = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-hero">
+    <AnimatedBackground theme="default">
       <div className="max-w-7xl mx-auto px-6 py-12">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-8">
-          <Link to="/student/name" className="flex items-center text-white hover:text-white/80 transition-colors">
-            <ArrowLeft className="w-5 h-5 mr-2" />
-            Back
-          </Link>
-          
-          {/* Student Stats */}
-          <div className="flex items-center space-x-4">
-            <div className="xp-badge">
-              <Zap className="w-4 h-4 mr-1" />
-              {studentData.xp} XP
-            </div>
-            <div className="coins-badge">
-              <Coins className="w-4 h-4 mr-1" />
-              {studentData.coins}
-            </div>
-            <div className="bg-white/20 text-white px-3 py-1 rounded-full text-sm font-semibold">
-              <Trophy className="w-4 h-4 mr-1 inline" />
-              {studentData.badges.length}
-            </div>
-          </div>
-        </div>
+        <GameHeader 
+          backTo="/student/name" 
+          backLabel={t('back')}
+          showStats={true}
+          showAvatar={true}
+        />
 
         {/* Welcome Message */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-white mb-4">
             Welcome back, {studentData.name}! 
           </h1>
-          <p className="text-xl text-white/80 mb-2">Class {studentData.class}</p>
-          <p className="text-white/70">Choose a subject to start your learning adventure</p>
+          <p className="text-xl text-white/80 mb-2">{t('class')} {studentData.class}</p>
+          <p className="text-white/70">{t('chooseSubjectDesc')}</p>
         </div>
 
         {/* Subjects Grid */}
@@ -123,8 +110,8 @@ const StudentSubjects = () => {
               >
                 <Link to={`/student/chapters/${subject.id}`} className="block">
                   <div className="text-center">
-                    <div className="text-6xl mb-4">{subject.icon}</div>
-                    <h3 className="text-2xl font-bold text-white mb-3">{subject.name}</h3>
+                    <div className="text-6xl mb-4 animate-bounce-gentle">{subject.icon}</div>
+                    <h3 className="text-2xl font-bold text-white mb-3">{t(subject.id)}</h3>
                     <p className="text-white/90 mb-6">{subject.description}</p>
                     
                     {/* Progress */}
@@ -163,11 +150,11 @@ const StudentSubjects = () => {
                     <div className="flex items-center justify-center space-x-4 text-white/80 text-sm">
                       <div className="flex items-center space-x-1">
                         <BookOpen className="w-4 h-4" />
-                        <span>{subject.chapters.length} Chapters</span>
+                        <span>{subject.chapters.length} {t('chapters')}</span>
                       </div>
                       <div className="flex items-center space-x-1">
                         <PlayCircle className="w-4 h-4" />
-                        <span>Games & Videos</span>
+                        <span>{t('games')} & {t('videos')}</span>
                       </div>
                     </div>
                   </div>
@@ -188,7 +175,7 @@ const StudentSubjects = () => {
           </div>
         </div>
       </div>
-    </div>
+    </AnimatedBackground>
   );
 };
 

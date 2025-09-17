@@ -144,6 +144,7 @@ const StudentChapters = () => {
   const { subject } = useParams<{ subject: string }>();
   const [studentData, setStudentData] = useState<StudentData | null>(null);
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   useEffect(() => {
     const stored = localStorage.getItem("rued_student");
@@ -291,7 +292,7 @@ const StudentChapters = () => {
           </div>
         </div>
       </div>
-    </div>
+    </AnimatedBackground>
   );
 };
 

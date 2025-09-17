@@ -6,12 +6,16 @@ import { Card } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ArrowLeft, Users, BarChart3 } from "lucide-react";
 import { toast } from "sonner";
+import { useLanguage } from "@/contexts/LanguageContext";
+import AnimatedBackground from "@/components/AnimatedBackground";
+import LanguageSelector from "@/components/LanguageSelector";
 
 const TeacherName = () => {
   const [name, setName] = useState("");
   const [subject, setSubject] = useState("");
   const [school, setSchool] = useState("");
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,14 +50,15 @@ const TeacherName = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-hero">
+    <AnimatedBackground theme="default">
       <div className="max-w-2xl mx-auto px-6 py-12">
         {/* Header */}
         <div className="flex items-center justify-between mb-12">
-          <Link to="/teacher" className="flex items-center text-white hover:text-white/80 transition-colors">
+          <Link to="/teacher" className="flex items-center text-white hover:text-white/80 transition-all duration-300 hover:scale-105">
             <ArrowLeft className="w-5 h-5 mr-2" />
-            Back
+            {t('back')}
           </Link>
+          <LanguageSelector />
         </div>
 
         {/* Form Card */}
@@ -62,52 +67,52 @@ const TeacherName = () => {
             <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
               <Users className="w-10 h-10 text-white" />
             </div>
-            <h1 className="text-3xl font-bold text-white mb-4">Teacher Setup</h1>
-            <p className="text-white/80">Set up your profile to access the dashboard</p>
+            <h1 className="text-3xl font-bold text-white mb-4">{t('teacherPortalTitle')}</h1>
+            <p className="text-white/80">Enter your details to access the dashboard</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-white font-medium mb-2">Your Name</label>
+              <label className="block text-white font-medium mb-2">Teacher Name</label>
               <Input
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Enter your full name"
-                className="bg-white/20 border-white/30 text-white placeholder:text-white/60 text-lg p-4"
+                className="bg-white/20 border-white/30 text-white placeholder:text-white/60 text-lg p-4 transition-all duration-300 focus:scale-105"
               />
             </div>
 
             <div>
-              <label className="block text-white font-medium mb-2">Subject Specialization</label>
+              <label className="block text-white font-medium mb-2">{t('subject')}</label>
               <Select value={subject} onValueChange={setSubject}>
-                <SelectTrigger className="bg-white/20 border-white/30 text-white text-lg p-4">
+                <SelectTrigger className="bg-white/20 border-white/30 text-white text-lg p-4 transition-all duration-300 hover:scale-105">
                   <SelectValue placeholder="Choose your primary subject" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="physics">Physics</SelectItem>
-                  <SelectItem value="chemistry">Chemistry</SelectItem>
-                  <SelectItem value="biology">Biology</SelectItem>
-                  <SelectItem value="mathematics">Mathematics</SelectItem>
+                  <SelectItem value="physics">{t('physics')}</SelectItem>
+                  <SelectItem value="chemistry">{t('chemistry')}</SelectItem>
+                  <SelectItem value="biology">{t('biology')}</SelectItem>
+                  <SelectItem value="mathematics">{t('mathematics')}</SelectItem>
                   <SelectItem value="all">All Subjects</SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
             <div>
-              <label className="block text-white font-medium mb-2">School Name</label>
+              <label className="block text-white font-medium mb-2">{t('school')}</label>
               <Input
                 type="text"
                 value={school}
                 onChange={(e) => setSchool(e.target.value)}
                 placeholder="Enter your school name"
-                className="bg-white/20 border-white/30 text-white placeholder:text-white/60 text-lg p-4"
+                className="bg-white/20 border-white/30 text-white placeholder:text-white/60 text-lg p-4 transition-all duration-300 focus:scale-105"
               />
             </div>
 
-            <Button type="submit" className="btn-hero w-full text-lg py-4 mt-8">
+            <Button type="submit" className="btn-hero w-full text-lg py-4 mt-8 hover:scale-105 transition-all duration-300">
               <BarChart3 className="w-5 h-5 mr-2" />
-              Access Dashboard
+              {t('accessDashboard')}
             </Button>
           </form>
 
@@ -116,7 +121,7 @@ const TeacherName = () => {
           </div>
         </Card>
       </div>
-    </div>
+    </AnimatedBackground>
   );
 };
 
