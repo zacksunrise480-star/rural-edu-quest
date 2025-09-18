@@ -6,74 +6,84 @@
 
 @layer base {
   :root {
-    /* Base colors */
-    --background: 240 10% 98%;
-    --foreground: 240 10% 15%;
+    /* Dark Gaming Base Colors */
+    --background: 220 30% 8%;
+    --foreground: 0 0% 98%;
 
-    /* Card and surface colors */
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 15%;
+    /* Dark Card and Surface Colors */
+    --card: 220 25% 12%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 15%;
+    --popover: 220 25% 10%;
+    --popover-foreground: 0 0% 95%;
 
-    /* Primary - Learning Purple/Blue gradient theme */
-    --primary: 260 60% 55%;
-    --primary-foreground: 0 0% 100%;
-    --primary-light: 260 60% 70%;
-    --primary-dark: 260 60% 40%;
+    /* Neon Primary - Electric Cyan */
+    --primary: 180 100% 50%;
+    --primary-foreground: 220 30% 8%;
+    --primary-light: 180 100% 70%;
+    --primary-dark: 180 100% 35%;
+    --primary-glow: 180 100% 50%;
 
-    /* Secondary - Reward Orange theme */
-    --secondary: 30 90% 60%;
-    --secondary-foreground: 0 0% 100%;
-    --secondary-light: 30 90% 75%;
+    /* Neon Secondary - Electric Magenta */
+    --secondary: 300 100% 60%;
+    --secondary-foreground: 220 30% 8%;
+    --secondary-light: 300 100% 75%;
+    --secondary-glow: 300 100% 60%;
 
-    /* Subject colors */
-    --physics: 210 100% 60%;
-    --chemistry: 120 60% 50%;
-    --biology: 30 85% 55%;
-    --mathematics: 280 60% 60%;
+    /* Neon Accent - Electric Green */
+    --accent: 120 100% 50%;
+    --accent-foreground: 220 30% 8%;
+    --accent-light: 120 100% 70%;
+    --accent-glow: 120 100% 50%;
 
-    /* Success and achievement colors */
-    --success: 120 60% 50%;
-    --success-foreground: 0 0% 100%;
-    --warning: 45 90% 60%;
-    --warning-foreground: 0 0% 100%;
+    /* Neon Subject Colors */
+    --physics: 200 100% 55%;         /* Electric Blue */
+    --chemistry: 120 100% 50%;       /* Electric Green */
+    --biology: 60 100% 50%;          /* Electric Yellow */
+    --mathematics: 270 100% 60%;     /* Electric Purple */
 
-    /* Gamification colors */
-    --xp: 280 60% 60%;
-    --coins: 45 90% 60%;
-    --badge-gold: 45 90% 60%;
-    --badge-silver: 0 0% 75%;
-    --badge-bronze: 25 60% 50%;
+    /* Gaming Achievement Colors */
+    --success: 120 100% 50%;
+    --success-foreground: 220 30% 8%;
+    --warning: 30 100% 60%;
+    --warning-foreground: 220 30% 8%;
 
-    /* Neutral colors */
-    --muted: 240 10% 95%;
-    --muted-foreground: 240 5% 45%;
-    --accent: 260 40% 95%;
-    --accent-foreground: 260 60% 30%;
+    /* Gamification Neon Colors */
+    --xp: 270 100% 60%;              /* Electric Purple for XP */
+    --coins: 45 100% 60%;            /* Electric Gold for Coins */
+    --badge-gold: 45 100% 60%;
+    --badge-silver: 0 0% 80%;
+    --badge-bronze: 25 100% 50%;
 
-    --destructive: 0 85% 60%;
+    /* Dark Neutral Colors */
+    --muted: 220 20% 15%;
+    --muted-foreground: 0 0% 70%;
+
+    --destructive: 0 100% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 10% 90%;
-    --input: 240 10% 95%;
-    --ring: 260 60% 55%;
+    --border: 220 20% 20%;
+    --input: 220 20% 15%;
+    --ring: 180 100% 50%;
 
-    /* Gradients */
+    /* Gaming Neon Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
     --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-light)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
-    --gradient-subject-physics: linear-gradient(135deg, hsl(var(--physics)), hsl(210 100% 70%));
-    --gradient-subject-chemistry: linear-gradient(135deg, hsl(var(--chemistry)), hsl(120 60% 65%));
-    --gradient-subject-biology: linear-gradient(135deg, hsl(var(--biology)), hsl(30 85% 70%));
-    --gradient-subject-mathematics: linear-gradient(135deg, hsl(var(--mathematics)), hsl(280 60% 75%));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 50%, hsl(var(--accent)) 100%);
+    --gradient-subject-physics: linear-gradient(135deg, hsl(var(--physics)), hsl(200 100% 70%));
+    --gradient-subject-chemistry: linear-gradient(135deg, hsl(var(--chemistry)), hsl(120 100% 70%));
+    --gradient-subject-biology: linear-gradient(135deg, hsl(var(--biology)), hsl(60 100% 70%));
+    --gradient-subject-mathematics: linear-gradient(135deg, hsl(var(--mathematics)), hsl(270 100% 75%));
     --gradient-reward: linear-gradient(135deg, hsl(var(--badge-gold)), hsl(var(--coins)));
+    --gradient-dark: linear-gradient(135deg, hsl(var(--background)), hsl(220 25% 12%));
 
-    /* Shadows */
-    --shadow-card: 0 4px 20px hsl(var(--primary) / 0.1);
-    --shadow-button: 0 6px 20px hsl(var(--primary) / 0.25);
-    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.3);
+    /* Neon Gaming Shadows & Glows */
+    --shadow-card: 0 8px 32px hsl(var(--primary) / 0.15);
+    --shadow-button: 0 8px 32px hsl(var(--primary) / 0.35);
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.5);
+    --shadow-glow-secondary: 0 0 40px hsl(var(--secondary) / 0.4);
+    --shadow-glow-accent: 0 0 40px hsl(var(--accent) / 0.4);
+    --shadow-neon-border: inset 0 0 0 1px hsl(var(--primary) / 0.3), 0 0 20px hsl(var(--primary) / 0.2);
 
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -148,38 +158,109 @@
 }
 
 @layer components {
-  /* Hero button styles */
+  /* Gaming Hero Button Styles */
   .btn-hero {
-    @apply bg-gradient-to-r from-primary to-secondary text-white font-bold py-4 px-8 rounded-xl shadow-[var(--shadow-button)] transition-all duration-300 hover:scale-105 hover:shadow-[var(--shadow-glow)] active:scale-95;
+    @apply relative bg-gradient-to-r from-primary via-secondary to-accent text-background font-bold py-4 px-8 rounded-xl;
+    box-shadow: var(--shadow-neon-border), var(--shadow-glow);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .btn-hero:hover {
+    @apply scale-110;
+    box-shadow: var(--shadow-neon-border), var(--shadow-glow-secondary), 0 0 60px hsl(var(--primary) / 0.6);
+    animation: neon-pulse 1.5s infinite;
   }
 
-  /* Subject card styles */
+  .btn-hero:active {
+    @apply scale-105;
+  }
+
+  /* Gaming Button Variants */
+  .btn-neon-primary {
+    @apply relative bg-background border-2 text-primary font-semibold py-3 px-6 rounded-lg;
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .btn-neon-primary:hover {
+    @apply bg-primary text-background;
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.6), inset 0 0 20px hsl(var(--primary) / 0.1);
+  }
+
+  .btn-neon-secondary {
+    @apply relative bg-background border-2 text-secondary font-semibold py-3 px-6 rounded-lg;
+    border-color: hsl(var(--secondary));
+    box-shadow: 0 0 20px hsl(var(--secondary) / 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .btn-neon-secondary:hover {
+    @apply bg-secondary text-background;
+    box-shadow: 0 0 30px hsl(var(--secondary) / 0.6), inset 0 0 20px hsl(var(--secondary) / 0.1);
+  }
+
+  /* Gaming Subject Card Styles */
   .card-physics {
-    @apply bg-gradient-to-br from-physics to-blue-400 text-white;
+    @apply relative bg-gradient-to-br from-physics to-blue-400 text-white border-2;
+    border-color: hsl(var(--physics) / 0.5);
+    box-shadow: var(--shadow-card), 0 0 30px hsl(var(--physics) / 0.3);
   }
   
   .card-chemistry {
-    @apply bg-gradient-to-br from-chemistry to-green-400 text-white;
+    @apply relative bg-gradient-to-br from-chemistry to-green-400 text-white border-2;
+    border-color: hsl(var(--chemistry) / 0.5);
+    box-shadow: var(--shadow-card), 0 0 30px hsl(var(--chemistry) / 0.3);
   }
   
   .card-biology {
-    @apply bg-gradient-to-br from-biology to-orange-400 text-white;
+    @apply relative bg-gradient-to-br from-biology to-yellow-400 text-white border-2;
+    border-color: hsl(var(--biology) / 0.5);
+    box-shadow: var(--shadow-card), 0 0 30px hsl(var(--biology) / 0.3);
   }
   
   .card-mathematics {
-    @apply bg-gradient-to-br from-mathematics to-purple-400 text-white;
+    @apply relative bg-gradient-to-br from-mathematics to-purple-400 text-white border-2;
+    border-color: hsl(var(--mathematics) / 0.5);
+    box-shadow: var(--shadow-card), 0 0 30px hsl(var(--mathematics) / 0.3);
   }
 
-  /* Gamification elements */
+  /* Gaming UI Elements */
   .xp-badge {
-    @apply bg-gradient-to-r from-xp to-purple-400 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg;
+    @apply relative bg-gradient-to-r from-xp to-purple-400 text-white px-4 py-2 rounded-full text-sm font-bold;
+    box-shadow: 0 0 20px hsl(var(--xp) / 0.4);
   }
 
   .coins-badge {
-    @apply bg-gradient-to-r from-coins to-yellow-400 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg;
+    @apply relative bg-gradient-to-r from-coins to-yellow-400 text-background px-4 py-2 rounded-full text-sm font-bold;
+    box-shadow: 0 0 20px hsl(var(--coins) / 0.4);
   }
 
-  /* Animations */
+  .progress-neon {
+    @apply relative bg-muted rounded-full overflow-hidden;
+    box-shadow: inset 0 2px 4px hsl(var(--background) / 0.3);
+  }
+
+  .progress-neon .progress-fill {
+    @apply h-full bg-gradient-to-r from-primary to-accent rounded-full;
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+    animation: neon-flow 2s ease-in-out infinite alternate;
+  }
+
+  /* Gaming Card Styles */
+  .gaming-card {
+    @apply relative bg-card border-2 rounded-xl p-6 transition-all duration-300;
+    border-color: hsl(var(--border));
+    box-shadow: var(--shadow-card);
+  }
+
+  .gaming-card:hover {
+    @apply scale-105;
+    box-shadow: var(--shadow-glow), var(--shadow-card);
+    border-color: hsl(var(--primary) / 0.6);
+  }
+
+  /* Gaming Animations */
   .animate-bounce-gentle {
     animation: bounce-gentle 2s infinite;
   }
@@ -190,6 +271,18 @@
 
   .animate-slide-up {
     animation: slide-up 0.5s ease-out;
+  }
+
+  .animate-neon-pulse {
+    animation: neon-pulse 1.5s infinite;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-glow-rotate {
+    animation: glow-rotate 4s linear infinite;
   }
 }
 
@@ -218,7 +311,7 @@
   }
 }
 
-/* Custom keyframes */
+/* Gaming Keyframes & Animations */
 @keyframes bounce-gentle {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
@@ -241,5 +334,69 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes neon-pulse {
+  0%, 100% {
+    filter: brightness(1) drop-shadow(0 0 10px currentColor);
+  }
+  50% {
+    filter: brightness(1.2) drop-shadow(0 0 20px currentColor);
+  }
+}
+
+@keyframes neon-flow {
+  0% {
+    filter: brightness(1) hue-rotate(0deg);
+  }
+  100% {
+    filter: brightness(1.2) hue-rotate(10deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glow-rotate {
+  0% {
+    filter: brightness(1) hue-rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    filter: brightness(1.1) hue-rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes confetti-burst {
+  0% {
+    opacity: 1;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2) rotate(180deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8) rotate(360deg);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
   }
 }

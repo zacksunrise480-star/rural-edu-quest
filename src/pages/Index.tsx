@@ -1,144 +1,144 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { GraduationCap, Users, BookOpen, Trophy, Gamepad2, Video } from "lucide-react";
+import { Trophy, Users, Award, ArrowRight, Star, Zap } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 import LanguageSelector from "@/components/LanguageSelector";
 
 const Index = () => {
   const { t } = useLanguage();
   
   return (
-    <div className="min-h-screen bg-gradient-hero relative overflow-hidden">
-      {/* Floating background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 text-6xl opacity-10 animate-bounce-gentle">🎓</div>
-        <div className="absolute top-32 right-20 text-4xl opacity-20 animate-pulse">⭐</div>
-        <div className="absolute bottom-20 left-20 text-5xl opacity-15 animate-bounce-gentle">🚀</div>
-        <div className="absolute bottom-32 right-10 text-3xl opacity-25 animate-pulse">🎮</div>
+    <LanguageProvider>
+      <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
+        {/* Animated Gaming Background */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-20 left-10 w-4 h-4 bg-primary rounded-full animate-float opacity-30"></div>
+          <div className="absolute top-40 right-20 w-6 h-6 bg-secondary rounded-full animate-float opacity-40" style={{ animationDelay: '0.5s' }}></div>
+          <div className="absolute bottom-40 left-20 w-5 h-5 bg-accent rounded-full animate-float opacity-35" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-20 right-40 w-3 h-3 bg-primary rounded-full animate-float opacity-25" style={{ animationDelay: '1.5s' }}></div>
+          <div className="absolute top-1/2 left-1/4 w-8 h-8 border-2 border-secondary rounded-full animate-glow-rotate opacity-20"></div>
+          <div className="absolute top-1/3 right-1/3 w-6 h-6 border-2 border-accent rounded-full animate-glow-rotate opacity-25" style={{ animationDelay: '2s' }}></div>
+        </div>
+
+        <div className="relative z-10">
+          {/* Gaming Header */}
+          <header className="container mx-auto px-6 pt-8">
+            <div className="flex justify-between items-center">
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center animate-neon-pulse">
+                  <span className="text-2xl font-bold text-background">R</span>
+                </div>
+                <div>
+                  <h1 className="text-2xl font-bold text-primary">RUED</h1>
+                  <p className="text-sm text-muted-foreground">{t('gameTitle')}</p>
+                </div>
+              </div>
+              <LanguageSelector />
+            </div>
+          </header>
+
+          {/* Hero Section */}
+          <main className="container mx-auto px-6 py-16">
+            <div className="text-center mb-16">
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gradient-primary animate-slide-up">
+                {t('welcome')}
+              </h1>
+              <p className="text-xl text-muted-foreground mb-8 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+                {t('heroSubtitle')}
+              </p>
+              
+              {/* Gaming Achievement Stats */}
+              <div className="flex justify-center space-x-8 mb-12 animate-slide-up" style={{ animationDelay: '0.4s' }}>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-primary animate-neon-pulse">10K+</div>
+                  <div className="text-sm text-muted-foreground">{t('students')}</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-secondary animate-neon-pulse">500+</div>
+                  <div className="text-sm text-muted-foreground">{t('teachers')}</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-accent animate-neon-pulse">1M+</div>
+                  <div className="text-sm text-muted-foreground">{t('gamesPlayed')}</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Gaming Portal Cards */}
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {/* Student Portal */}
+              <Link to="/student" className="group">
+                <div className="gaming-card hover:border-primary/60 group-hover:shadow-glow transition-all duration-500">
+                  <div className="text-center">
+                    <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center group-hover:animate-neon-pulse">
+                      <span className="text-4xl">🎮</span>
+                    </div>
+                    <h2 className="text-3xl font-bold mb-4 text-primary group-hover:text-primary-light transition-colors">
+                      {t('student')}
+                    </h2>
+                    <p className="text-muted-foreground mb-6">
+                      {t('studentPortalDesc')}
+                    </p>
+                    <div className="btn-neon-primary w-full justify-center inline-flex items-center">
+                      {t('startLearning')}
+                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              {/* Teacher Portal */}
+              <Link to="/teacher" className="group">
+                <div className="gaming-card hover:border-secondary/60 group-hover:shadow-glow-secondary transition-all duration-500">
+                  <div className="text-center">
+                    <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-r from-secondary to-accent rounded-full flex items-center justify-center group-hover:animate-neon-pulse">
+                      <span className="text-4xl">👨‍🏫</span>
+                    </div>
+                    <h2 className="text-3xl font-bold mb-4 text-secondary group-hover:text-secondary-light transition-colors">
+                      {t('teacher')}
+                    </h2>
+                    <p className="text-muted-foreground mb-6">
+                      {t('teacherPortalDesc')}
+                    </p>
+                    <div className="btn-neon-secondary w-full justify-center inline-flex items-center">
+                      {t('manageLearning')}
+                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+
+            {/* Gaming Features */}
+            <div className="mt-20 grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              <div className="text-center animate-slide-up" style={{ animationDelay: '0.6s' }}>
+                <div className="w-16 h-16 mx-auto mb-4 bg-primary/20 rounded-full flex items-center justify-center">
+                  <Trophy className="h-8 w-8 text-primary animate-neon-pulse" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 text-primary">{t('gamifiedLearning')}</h3>
+                <p className="text-muted-foreground">{t('gamifiedLearningDesc')}</p>
+              </div>
+              <div className="text-center animate-slide-up" style={{ animationDelay: '0.8s' }}>
+                <div className="w-16 h-16 mx-auto mb-4 bg-secondary/20 rounded-full flex items-center justify-center">
+                  <Users className="h-8 w-8 text-secondary animate-neon-pulse" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 text-secondary">{t('multilingualSupport')}</h3>
+                <p className="text-muted-foreground">{t('multilingualSupportDesc')}</p>
+              </div>
+              <div className="text-center animate-slide-up" style={{ animationDelay: '1s' }}>
+                <div className="w-16 h-16 mx-auto mb-4 bg-accent/20 rounded-full flex items-center justify-center">
+                  <Award className="h-8 w-8 text-accent animate-neon-pulse" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 text-accent">{t('rewardSystem')}</h3>
+                <p className="text-muted-foreground">{t('rewardSystemDesc')}</p>
+              </div>
+            </div>
+          </main>
+        </div>
       </div>
-
-      {/* Header */}
-      <header className="p-6 relative z-10">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center animate-pulse-glow">
-              <GraduationCap className="w-8 h-8 text-white" />
-            </div>
-            <div>
-              <h1 className="text-2xl font-bold text-white">RUED</h1>
-              <p className="text-white/80 text-sm">{t('tagline')}</p>
-            </div>
-          </div>
-          <LanguageSelector />
-        </div>
-      </header>
-
-      {/* Hero Section */}
-      <main className="max-w-7xl mx-auto px-6 py-12 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 animate-slide-up text-gradient-primary">
-            {t('welcome')}
-          </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto animate-slide-up">
-            {t('description')}
-          </p>
-          
-          {/* Portal Selection */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Student Portal */}
-            <Card className="p-8 border-0 bg-white/10 backdrop-blur-sm hover:bg-white/20 hover:shadow-glow transition-all duration-300 group cursor-pointer">
-              <Link to="/student" className="block">
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-glow">
-                    <BookOpen className="w-10 h-10 text-white animate-bounce-gentle" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-4">{t('studentPortal')}</h3>
-                  <p className="text-white/80 mb-6">
-                    {t('studentPortalDesc')}
-                  </p>
-                  <div className="flex justify-center space-x-4 text-sm text-white/70">
-                    <div className="flex items-center space-x-1 hover-scale">
-                      <Gamepad2 className="w-4 h-4" />
-                      <span>{t('games')}</span>
-                    </div>
-                    <div className="flex items-center space-x-1 hover-scale">
-                      <Video className="w-4 h-4" />
-                      <span>{t('videos')}</span>
-                    </div>
-                    <div className="flex items-center space-x-1 hover-scale">
-                      <Trophy className="w-4 h-4" />
-                      <span>{t('rewards')}</span>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </Card>
-
-            {/* Teacher Portal */}
-            <Card className="p-8 border-0 bg-white/10 backdrop-blur-sm hover:bg-white/20 hover:shadow-glow transition-all duration-300 group cursor-pointer">
-              <Link to="/teacher" className="block">
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-glow">
-                    <Users className="w-10 h-10 text-white animate-bounce-gentle" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-4">{t('teacherPortal')}</h3>
-                  <p className="text-white/80 mb-6">
-                    {t('teacherPortalDesc')}
-                  </p>
-                  <div className="flex justify-center space-x-4 text-sm text-white/70">
-                    <div className="flex items-center space-x-1 hover-scale">
-                      <Trophy className="w-4 h-4" />
-                      <span>{t('leaderboard')}</span>
-                    </div>
-                    <div className="flex items-center space-x-1 hover-scale">
-                      <BookOpen className="w-4 h-4" />
-                      <span>{t('analytics')}</span>
-                    </div>
-                    <div className="flex items-center space-x-1 hover-scale">
-                      <Users className="w-4 h-4" />
-                      <span>{t('students')}</span>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </Card>
-          </div>
-        </div>
-
-        {/* Features Preview */}
-        <div className="grid md:grid-cols-4 gap-6 mt-16">
-          <div className="text-center text-white group hover-scale">
-            <div className="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:shadow-glow transition-all duration-300 animate-pulse-glow">
-              <BookOpen className="w-8 h-8 group-hover:scale-110 transition-transform" />
-            </div>
-            <h4 className="font-semibold mb-2">{t('interactiveLearning')}</h4>
-            <p className="text-sm text-white/70">{t('interactiveLearningDesc')}</p>
-          </div>
-          <div className="text-center text-white group hover-scale">
-            <div className="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:shadow-glow transition-all duration-300 animate-pulse-glow">
-              <Gamepad2 className="w-8 h-8 group-hover:scale-110 transition-transform" />
-            </div>
-            <h4 className="font-semibold mb-2">{t('educationalGames')}</h4>
-            <p className="text-sm text-white/70">{t('educationalGamesDesc')}</p>
-          </div>
-          <div className="text-center text-white group hover-scale">
-            <div className="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:shadow-glow transition-all duration-300 animate-pulse-glow">
-              <Trophy className="w-8 h-8 group-hover:scale-110 transition-transform" />
-            </div>
-            <h4 className="font-semibold mb-2">{t('rewardsSystem')}</h4>
-            <p className="text-sm text-white/70">{t('rewardsSystemDesc')}</p>
-          </div>
-          <div className="text-center text-white group hover-scale">
-            <div className="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:shadow-glow transition-all duration-300 animate-pulse-glow">
-              <Users className="w-8 h-8 group-hover:scale-110 transition-transform" />
-            </div>
-            <h4 className="font-semibold mb-2">{t('progressTracking')}</h4>
-            <p className="text-sm text-white/70">{t('progressTrackingDesc')}</p>
-          </div>
-        </div>
-      </main>
-    </div>
+    </LanguageProvider>
   );
 };
 
