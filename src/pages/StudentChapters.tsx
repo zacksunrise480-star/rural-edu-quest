@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Play, BookOpen, Gamepad2, Trophy, CheckCircle, Lock } from "lucide-react";
 import { toast } from "sonner";
+import { useLanguage } from "@/contexts/LanguageContext";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
 interface StudentData {
   name: string;
@@ -178,8 +180,9 @@ const StudentChapters = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-hero">
-      <div className="max-w-6xl mx-auto px-6 py-12">
+    <AnimatedBackground>
+      <div className="min-h-screen">
+        <div className="max-w-6xl mx-auto px-6 py-12">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <Link to="/student/subjects" className="flex items-center text-white hover:text-white/80 transition-colors">
@@ -290,6 +293,7 @@ const StudentChapters = () => {
               Completed: {currentSubject.chapters.filter(ch => isChapterCompleted(ch.id)).length} / {currentSubject.chapters.length} chapters
             </div>
           </div>
+        </div>
         </div>
       </div>
     </AnimatedBackground>
