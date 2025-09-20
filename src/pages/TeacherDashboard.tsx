@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Users, Trophy, BookOpen, Download, BarChart3, TrendingUp, Clock } from "lucide-react";
 import { toast } from "sonner";
+import NeonCard from "@/components/NeonCard";
 
 interface TeacherData {
   name: string;
@@ -150,59 +151,59 @@ const TeacherDashboard = () => {
 
         {/* Stats Overview */}
         <div className="grid md:grid-cols-5 gap-6 mb-12">
-          <Card className="p-6 bg-white/10 backdrop-blur-sm border-0">
+          <NeonCard glowColor="primary" className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-white/80 text-sm">Total Students</p>
-                <p className="text-3xl font-bold text-white">{students.length}</p>
+                <p className="text-white/80 text-sm font-medium">Total Students</p>
+                <p className="text-4xl font-bold text-primary animate-neon-pulse">{students.length}</p>
               </div>
-              <Users className="w-8 h-8 text-white/60" />
+              <Users className="w-10 h-10 text-primary animate-float" />
             </div>
-          </Card>
+          </NeonCard>
 
-          <Card className="p-6 bg-white/10 backdrop-blur-sm border-0">
+          <NeonCard glowColor="secondary" className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-white/80 text-sm">Average XP</p>
-                <p className="text-3xl font-bold text-white">{averageXP}</p>
+                <p className="text-white/80 text-sm font-medium">Average XP</p>
+                <p className="text-4xl font-bold text-secondary animate-neon-pulse">{averageXP}</p>
               </div>
-              <TrendingUp className="w-8 h-8 text-white/60" />
+              <TrendingUp className="w-10 h-10 text-secondary animate-float" />
             </div>
-          </Card>
+          </NeonCard>
 
-          <Card className="p-6 bg-white/10 backdrop-blur-sm border-0">
+          <NeonCard glowColor="accent" className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-white/80 text-sm">Total Chapters</p>
-                <p className="text-3xl font-bold text-white">
+                <p className="text-white/80 text-sm font-medium">Total Chapters</p>
+                <p className="text-4xl font-bold text-accent animate-neon-pulse">
                   {students.reduce((sum, s) => sum + s.completedChapters.length, 0)}
                 </p>
               </div>
-              <BookOpen className="w-8 h-8 text-white/60" />
+              <BookOpen className="w-10 h-10 text-accent animate-float" />
             </div>
-          </Card>
+          </NeonCard>
 
-          <Card className="p-6 bg-white/10 backdrop-blur-sm border-0">
+          <NeonCard glowColor="physics" className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-white/80 text-sm">Games Completed</p>
-                <p className="text-3xl font-bold text-white">
+                <p className="text-white/80 text-sm font-medium">Games Completed</p>
+                <p className="text-4xl font-bold text-physics animate-neon-pulse">
                   {students.reduce((sum, s) => sum + (s.completedChapters.length * 2), 0)}
                 </p>
               </div>
-              <span className="w-8 h-8 text-2xl">🎮</span>
+              <span className="text-3xl animate-float">🎮</span>
             </div>
-          </Card>
+          </NeonCard>
 
-          <Card className="p-6 bg-white/10 backdrop-blur-sm border-0">
+          <NeonCard glowColor="chemistry" className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-white/80 text-sm">Active Today</p>
-                <p className="text-3xl font-bold text-white">{Math.floor(students.length * 0.7)}</p>
+                <p className="text-white/80 text-sm font-medium">Active Today</p>
+                <p className="text-4xl font-bold text-chemistry animate-neon-pulse">{Math.floor(students.length * 0.7)}</p>
               </div>
-              <Clock className="w-8 h-8 text-white/60" />
+              <Clock className="w-10 h-10 text-chemistry animate-float" />
             </div>
-          </Card>
+          </NeonCard>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">

@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Trophy, Users, Award, ArrowRight, Star, Zap } from "lucide-react";
+import { Trophy, Users, Award, ArrowRight, Star, Zap, Gamepad2, Brain } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import LanguageSelector from "@/components/LanguageSelector";
+import NeonCard from "@/components/NeonCard";
 
 const Index = () => {
   const { t } = useLanguage();

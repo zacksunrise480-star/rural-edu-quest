@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowLeft, User, BookOpen } from "lucide-react";
+import { ArrowLeft, User, BookOpen, Gamepad2, Star } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import LanguageSelector from "@/components/LanguageSelector";
+import NeonCard from "@/components/NeonCard";
 
 const StudentPortal = () => {
   const { t } = useLanguage();
@@ -22,44 +23,50 @@ const StudentPortal = () => {
         </div>
 
         {/* Welcome Card */}
-        <Card className="p-12 border-0 bg-white/10 backdrop-blur-sm text-center mb-8">
-          <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-8">
-            <User className="w-12 h-12 text-white" />
+        <NeonCard glowColor="primary" className="p-12 text-center mb-8">
+          <div className="w-32 h-32 bg-gradient-to-r from-primary via-secondary to-accent rounded-full flex items-center justify-center mx-auto mb-8 shadow-glow animate-glow-rotate">
+            <User className="w-16 h-16 text-white drop-shadow-lg" />
           </div>
           
-          <h1 className="text-4xl font-bold text-white mb-4">{t('studentPortalTitle')}</h1>
-          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+          <h1 className="text-5xl font-bold text-white mb-6 text-gradient-primary">{t('studentPortalTitle')}</h1>
+          <p className="text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
             {t('studentPortalWelcome')}
           </p>
 
-          <div className="space-y-6">
-            <div className="flex items-center justify-center space-x-2 text-white/70">
-              <BookOpen className="w-5 h-5" />
+          <div className="space-y-8">
+            <div className="flex items-center justify-center space-x-3 text-white/80 text-lg">
+              <BookOpen className="w-6 h-6 animate-float" />
               <span>{t('chooseSubjects')}</span>
             </div>
 
             <Link to="/student/name">
-              <Button className="btn-hero text-lg px-12 py-4 hover:scale-105 transition-all duration-300">
+              <Button variant="hero" className="text-xl px-16 py-6 shadow-glow">
+                <Star className="w-6 h-6 mr-3" />
                 {t('letsGetStarted')}
               </Button>
             </Link>
           </div>
-        </Card>
+        </NeonCard>
 
         {/* Quick Info */}
-        <div className="grid md:grid-cols-3 gap-6 text-center text-white">
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:scale-105 transition-all duration-300 hover:shadow-glow">
-            <h3 className="font-semibold mb-2">{t('interactiveGames')}</h3>
-            <p className="text-sm text-white/70">{t('interactiveGamesDesc')}</p>
-          </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:scale-105 transition-all duration-300 hover:shadow-glow">
-            <h3 className="font-semibold mb-2">{t('videoLessons')}</h3>
-            <p className="text-sm text-white/70">{t('videoLessonsDesc')}</p>
-          </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:scale-105 transition-all duration-300 hover:shadow-glow">
-            <h3 className="font-semibold mb-2">{t('earnRewards')}</h3>
-            <p className="text-sm text-white/70">{t('earnRewardsDesc')}</p>
-          </div>
+        <div className="grid md:grid-cols-3 gap-8 text-center text-white">
+          <NeonCard glowColor="primary" className="p-8">
+            <Gamepad2 className="w-12 h-12 text-primary mx-auto mb-4 animate-float" />
+            <h3 className="text-xl font-bold mb-3 text-gradient-primary">{t('interactiveGames')}</h3>
+            <p className="text-white/80 text-lg">{t('interactiveGamesDesc')}</p>
+          </NeonCard>
+          
+          <NeonCard glowColor="secondary" className="p-8">
+            <BookOpen className="w-12 h-12 text-secondary mx-auto mb-4 animate-float" style={{animationDelay: '0.2s'}} />
+            <h3 className="text-xl font-bold mb-3 text-gradient-primary">{t('videoLessons')}</h3>
+            <p className="text-white/80 text-lg">{t('videoLessonsDesc')}</p>
+          </NeonCard>
+          
+          <NeonCard glowColor="accent" className="p-8">
+            <ArrowLeft className="w-12 h-12 text-accent mx-auto mb-4 animate-float" style={{animationDelay: '0.4s'}} />
+            <h3 className="text-xl font-bold mb-3 text-gradient-primary">{t('earnRewards')}</h3>
+            <p className="text-white/80 text-lg">{t('earnRewardsDesc')}</p>
+          </NeonCard>
         </div>
       </div>
     </AnimatedBackground>
