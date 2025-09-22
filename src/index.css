@@ -380,6 +380,22 @@
     background: var(--gradient-gaming);
   }
 
+  .bg-gradient-subject-physics {
+    background: var(--gradient-subject-physics);
+  }
+
+  .bg-gradient-subject-chemistry {
+    background: var(--gradient-subject-chemistry);
+  }
+
+  .bg-gradient-subject-biology {
+    background: var(--gradient-subject-biology);
+  }
+
+  .bg-gradient-subject-mathematics {
+    background: var(--gradient-subject-mathematics);
+  }
+
   .bg-animated-gradient {
     background: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--secondary)), hsl(var(--primary)));
     background-size: 400% 400%;
