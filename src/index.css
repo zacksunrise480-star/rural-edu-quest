@@ -349,7 +349,6 @@
     animation: confetti-burst 0.6s ease-out;
   }
 }
-}
 
 @layer utilities {
   .text-gradient-primary {
