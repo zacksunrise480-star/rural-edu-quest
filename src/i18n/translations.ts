@@ -14,14 +14,20 @@ export const translations = {
     leaderboard: "Leaderboard",
     analytics: "Analytics",
     students: "Students",
-    interactiveLearning: "Interactive Learning",
-    interactiveLearningDesc: "Engaging content for all subjects",
-    educationalGames: "Educational Games",
-    educationalGamesDesc: "Learn through play and fun", 
-    rewardsSystem: "Rewards System",
-    rewardsSystemDesc: "Earn XP, coins, and badges",
-    progressTracking: "Progress Tracking",
-    progressTrackingDesc: "Monitor learning achievements",
+    teachers: "Teachers",
+    gamesPlayed: "Games Played",
+    student: "Student",
+    teacher: "Teacher",
+    startLearning: "Start Learning",
+    manageLearning: "Manage Learning",
+    gamifiedLearning: "Gamified Learning",
+    gamifiedLearningDesc: "Learn through interactive games and challenges",
+    multilingualSupport: "Multilingual Support",
+    multilingualSupportDesc: "Available in English, Hindi, and Odia",
+    rewardSystem: "Reward System",
+    rewardSystemDesc: "Earn XP, badges, and climb the leaderboard",
+    heroSubtitle: "The ultimate gamified learning platform for rural education",
+    gameTitle: "Learn. Play. Lead.",
     
     // Student Portal
     backToHome: "Back to Home",
@@ -56,6 +62,20 @@ export const translations = {
     playGame: "Play Game",
     completed: "Completed",
     
+    // Games
+    fractionPizza: "Fraction Pizza",
+    fractionPizzaDesc: "Learn fractions by slicing pizzas",
+    electricCircuit: "Electric Circuit",
+    electricCircuitDesc: "Build circuits and understand electricity",
+    foodChain: "Food Chain",
+    foodChainDesc: "Arrange organisms in the correct food chain",
+    shapeBuilder: "Shape Builder",
+    shapeBuilderDesc: "Learn geometry by building shapes",
+    startGame: "Start Game",
+    gameInstructions: "Click on elements to interact and solve the puzzle!",
+    correct: "Correct!",
+    tryAgain: "Try again!",
+    
     // Teacher Portal
     teacherDashboard: "Teacher Dashboard",
     teacherPortalTitle: "Teacher Portal",
@@ -80,13 +100,18 @@ export const translations = {
     completions: "completions",
     badges: "badges",
     back: "Back",
+    you: "You",
+    streak: "Streak",
+    totalPlayers: "Total Players",
+    accuracy: "Accuracy",
     
     // Common
     xp: "XP",
     coins: "Coins",
     class: "Class",
     subject: "Subject",
-    school: "School"
+    school: "School",
+    level: "Level"
   },
   
   hi: {
@@ -104,14 +129,20 @@ export const translations = {
     leaderboard: "लीडरबोर्ड",
     analytics: "एनालिटिक्स", 
     students: "छात्र",
-    interactiveLearning: "इंटरैक्टिव लर्निंग",
-    interactiveLearningDesc: "सभी विषयों के लिए आकर्षक सामग्री",
-    educationalGames: "शैक्षिक गेम्स",
-    educationalGamesDesc: "खेल और मज़े के माध्यम से सीखें",
-    rewardsSystem: "इनाम प्रणाली",
-    rewardsSystemDesc: "XP, सिक्के और बैज अर्जित करें",
-    progressTracking: "प्रगति ट्रैकिंग",
-    progressTrackingDesc: "सीखने की उपलब्धियों की निगरानी करें",
+    teachers: "शिक्षक",
+    gamesPlayed: "खेले गए गेम्स",
+    student: "छात्र",
+    teacher: "शिक्षक",
+    startLearning: "सीखना शुरू करें",
+    manageLearning: "सीखने का प्रबंधन करें",
+    gamifiedLearning: "गेमिफाइड लर्निंग",
+    gamifiedLearningDesc: "इंटरैक्टिव गेम्स और चुनौतियों के माध्यम से सीखें",
+    multilingualSupport: "बहुभाषी समर्थन",
+    multilingualSupportDesc: "अंग्रेजी, हिंदी और ओड़िया में उपलब्ध",
+    rewardSystem: "इनाम प्रणाली",
+    rewardSystemDesc: "XP, बैज अर्जित करें और लीडरबोर्ड पर चढ़ें",
+    heroSubtitle: "ग्रामीण शिक्षा के लिए अंतिम गेमिफाइड लर्निंग प्लेटफॉर्म",
+    gameTitle: "सीखें। खेलें। नेतृत्व करें।",
     
     // Student Portal
     backToHome: "होम पर वापस",
@@ -146,6 +177,20 @@ export const translations = {
     playGame: "गेम खेलें",
     completed: "पूर्ण",
     
+    // Games
+    fractionPizza: "फ्रैक्शन पिज्जा",
+    fractionPizzaDesc: "पिज्जा काटकर भिन्न सीखें",
+    electricCircuit: "विद्युत सर्किट",
+    electricCircuitDesc: "सर्किट बनाएं और बिजली को समझें",
+    foodChain: "खाद्य श्रृंखला",
+    foodChainDesc: "जीवों को सही खाद्य श्रृंखला में व्यवस्थित करें",
+    shapeBuilder: "आकार निर्माता",
+    shapeBuilderDesc: "आकार बनाकर ज्यामिति सीखें",
+    startGame: "गेम शुरू करें",
+    gameInstructions: "पहेली को हल करने के लिए तत्वों पर क्लिक करें!",
+    correct: "सही!",
+    tryAgain: "फिर कोशिश करें!",
+    
     // Teacher Portal
     teacherDashboard: "शिक्षक डैशबोर्ड",
     teacherPortalTitle: "शिक्षक पोर्टल",
@@ -170,13 +215,18 @@ export const translations = {
     completions: "पूर्णताएं",
     badges: "बैज",
     back: "वापस",
+    you: "आप",
+    streak: "स्ट्रीक",
+    totalPlayers: "कुल खिलाड़ी",
+    accuracy: "सटीकता",
     
     // Common
     xp: "XP",
     coins: "सिक्के",
     class: "कक्षा",
     subject: "विषय",
-    school: "स्कूल"
+    school: "स्कूल",
+    level: "स्तर"
   },
   
   or: {
@@ -194,14 +244,20 @@ export const translations = {
     leaderboard: "ଲିଡରବୋର୍ଡ",
     analytics: "ଆନାଲିଟିକ୍ସ",
     students: "ଛାତ୍ର",
-    interactiveLearning: "ଇଣ୍ଟରାକ୍ଟିଭ୍ ଲର୍ନିଂ",
-    interactiveLearningDesc: "ସମସ୍ତ ବିଷୟ ପାଇଁ ଆକର୍ଷକ ବିଷୟବସ୍ତୁ",
-    educationalGames: "ଶିକ୍ଷାମୂଳକ ଖେଳ",
-    educationalGamesDesc: "ଖେଳ ଏବଂ ମଜା ମାଧ୍ୟମରେ ଶିଖନ୍ତୁ",
-    rewardsSystem: "ପୁରସ୍କାର ବ୍ୟବସ୍ଥା",
-    rewardsSystemDesc: "XP, ମୁଦ୍ରା ଏବଂ ବ୍ୟାଜ୍ ଅର୍ଜନ କରନ୍ତୁ",
-    progressTracking: "ପ୍ରଗତି ଟ୍ରାକିଂ",
-    progressTrackingDesc: "ଶିକ୍ଷଣ ସଫଳତା ମନିଟର୍ କରନ୍ତୁ",
+    teachers: "ଶିକ୍ଷକ",
+    gamesPlayed: "ଖେଳାଯାଇଥିବା ଖେଳ",
+    student: "ଛାତ୍ର",
+    teacher: "ଶିକ୍ଷକ",
+    startLearning: "ଶିଖିବା ଆରମ୍ଭ କରନ୍ତୁ",
+    manageLearning: "ଶିଖିବାର ପରିଚାଳନା କରନ୍ତୁ",
+    gamifiedLearning: "ଗେମିଫାଇଡ୍ ଲର୍ନିଂ",
+    gamifiedLearningDesc: "ଇଣ୍ଟରାକ୍ଟିଭ୍ ଖେଳ ଏବଂ ଚ୍ୟାଲେଞ୍ଜ ମାଧ୍ୟମରେ ଶିଖନ୍ତୁ",
+    multilingualSupport: "ବହୁଭାଷୀ ସମର୍ଥନ",
+    multilingualSupportDesc: "ଇଂରାଜୀ, ହିନ୍ଦୀ ଏବଂ ଓଡ଼ିଆରେ ଉପଲବ୍ଧ",
+    rewardSystem: "ପୁରସ୍କାର ବ୍ୟବସ୍ଥା",
+    rewardSystemDesc: "XP, ବ୍ୟାଜ୍ ଅର୍ଜନ କରନ୍ତୁ ଏବଂ ଲିଡରବୋର୍ଡରେ ଉପରକୁ ଯାଆନ୍ତୁ",
+    heroSubtitle: "ଗ୍ରାମୀଣ ଶିକ୍ଷା ପାଇଁ ଚରମ ଗେମିଫାଇଡ୍ ଲର୍ନିଂ ପ୍ଲାଟଫର୍ମ",
+    gameTitle: "ଶିଖନ୍ତୁ। ଖେଳନ୍ତୁ। ନେତୃତ୍ୱ ଦିଅନ୍ତୁ।",
     
     // Student Portal
     backToHome: "ଘରକୁ ଫେରନ୍ତୁ",
@@ -236,6 +292,20 @@ export const translations = {
     playGame: "ଖେଳ ଖେଳନ୍ତୁ",
     completed: "ସମ୍ପୂର୍ଣ୍ଣ",
     
+    // Games
+    fractionPizza: "ଭଗ୍ନାଂଶ ପିଜା",
+    fractionPizzaDesc: "ପିଜା କାଟି ଭଗ୍ନାଂଶ ଶିଖନ୍ତୁ",
+    electricCircuit: "ବିଦ୍ୟୁତ ସର୍କିଟ",
+    electricCircuitDesc: "ସର୍କିଟ ତିଆରି କରି ବିଦ୍ୟୁତ ବୁଝନ୍ତୁ",
+    foodChain: "ଖାଦ୍ୟ ଶୃଙ୍ଖଳା",
+    foodChainDesc: "ଜୀବମାନଙ୍କୁ ସଠିକ ଖାଦ୍ୟ ଶୃଙ୍ଖଳାରେ ସଜାନ୍ତୁ",
+    shapeBuilder: "ଆକୃତି ନିର୍ମାତା",
+    shapeBuilderDesc: "ଆକୃତି ତିଆରି କରି ଜ୍ୟାମିତି ଶିଖନ୍ତୁ",
+    startGame: "ଖେଳ ଆରମ୍ଭ କରନ୍ତୁ",
+    gameInstructions: "ପଜଲ୍ ସମାଧାନ କରିବା ପାଇଁ ଉପାଦାନଗୁଡ଼ିକ ଉପରେ କ୍ଲିକ୍ କରନ୍ତୁ!",
+    correct: "ସଠିକ!",
+    tryAgain: "ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ!",
+    
     // Teacher Portal
     teacherDashboard: "ଶିକ୍ଷକ ଡ୍ୟାସବୋର୍ଡ",
     teacherPortalTitle: "ଶିକ୍ଷକ ପୋର୍ଟାଲ",
@@ -260,12 +330,17 @@ export const translations = {
     completions: "ସମାପ୍ତି",
     badges: "ବ୍ୟାଜ୍",
     back: "ଫେରନ୍ତୁ",
+    you: "ଆପଣ",
+    streak: "ଧାରା",
+    totalPlayers: "ସମୁଦାୟ ଖେଳାଳି",
+    accuracy: "ସଠିକତା",
     
     // Common
     xp: "XP",
     coins: "ମୁଦ୍ରା",
     class: "କ୍ଲାସ୍",
     subject: "ବିଷୟ",
-    school: "ସ୍କୁଲ"
+    school: "ସ୍କୁଲ",
+    level: "ସ୍ତର"
   }
 };

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* Import gaming fonts */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 /* RUED Gamified Learning Platform Design System */
 
@@ -150,7 +150,7 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', 'Inter', sans-serif;
     background: linear-gradient(135deg, 
       hsl(var(--background)) 0%, 
       hsl(220 30% 3%) 50%, 
@@ -162,7 +162,7 @@
 
   /* Gaming typography */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Orbitron', 'Inter', sans-serif;
+    font-family: 'Orbitron', 'Rajdhani', 'Inter', sans-serif;
     font-weight: 700;
   }
 
@@ -171,6 +171,12 @@
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 2px;
+  }
+
+  .title-futuristic {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
   }
 }
 
@@ -245,28 +251,32 @@
 
   /* Enhanced Gaming Subject Card Styles */
   .card-physics {
-    @apply relative bg-gradient-subject-physics text-white border-2;
+    @apply relative text-white border-2;
+    background: var(--gradient-subject-physics);
     border-color: hsl(var(--physics) / 0.5);
     box-shadow: var(--shadow-card), var(--shadow-glow-physics);
     transition: all 0.3s ease;
   }
   
   .card-chemistry {
-    @apply relative bg-gradient-subject-chemistry text-white border-2;
+    @apply relative text-white border-2;
+    background: var(--gradient-subject-chemistry);
     border-color: hsl(var(--chemistry) / 0.5);
     box-shadow: var(--shadow-card), var(--shadow-glow-chemistry);
     transition: all 0.3s ease;
   }
   
   .card-biology {
-    @apply relative bg-gradient-subject-biology text-white border-2;
+    @apply relative text-white border-2;
+    background: var(--gradient-subject-biology);
     border-color: hsl(var(--biology) / 0.5);
     box-shadow: var(--shadow-card), var(--shadow-glow-biology);
     transition: all 0.3s ease;
   }
   
   .card-mathematics {
-    @apply relative bg-gradient-subject-mathematics text-white border-2;
+    @apply relative text-white border-2;
+    background: var(--gradient-subject-mathematics);
     border-color: hsl(var(--mathematics) / 0.5);
     box-shadow: var(--shadow-card), var(--shadow-glow-mathematics);
     transition: all 0.3s ease;
@@ -347,6 +357,39 @@
 
   .animate-confetti-burst {
     animation: confetti-burst 0.6s ease-out;
+  }
+
+  /* Floating Particles Background */
+  .floating-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: hsl(var(--primary));
+    border-radius: 50%;
+    animation: float-particle 6s infinite linear;
+    opacity: 0.6;
+  }
+
+  .particle:nth-child(2n) {
+    background: hsl(var(--secondary));
+    animation-duration: 8s;
+    animation-delay: -2s;
+  }
+
+  .particle:nth-child(3n) {
+    background: hsl(var(--accent));
+    animation-duration: 10s;
+    animation-delay: -4s;
   }
 }
 
@@ -518,5 +561,22 @@
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+@keyframes float-particle {
+  0% {
+    transform: translateY(100vh) translateX(0px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100px) translateX(100px) rotate(360deg);
+    opacity: 0;
   }
 }

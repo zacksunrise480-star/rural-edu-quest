@@ -3,9 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Users, Trophy, BookOpen, Download, BarChart3, TrendingUp, Clock } from "lucide-react";
+import { ArrowLeft, Users, Trophy, BookOpen, Download, BarChart3, TrendingUp, Clock, Target, Zap } from "lucide-react";
 import { toast } from "sonner";
-import NeonCard from "@/components/NeonCard";
+import { useLanguage } from "@/contexts/LanguageContext";
+import FloatingParticles from "@/components/FloatingParticles";
+import GamingLeaderboard from "@/components/GamingLeaderboard";
 
 interface TeacherData {
   name: string;
@@ -27,6 +29,7 @@ const TeacherDashboard = () => {
   const [teacherData, setTeacherData] = useState<TeacherData | null>(null);
   const [students, setStudents] = useState<StudentData[]>([]);
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   useEffect(() => {
     const stored = localStorage.getItem("rued_teacher");
@@ -37,47 +40,55 @@ const TeacherDashboard = () => {
     }
     setTeacherData(JSON.parse(stored));
 
-    // Load demo student data for the dashboard
+    // Enhanced demo student data
     const demoStudents: StudentData[] = [
       {
-        name: "Rahul Kumar",
-        class: "6",
-        xp: 1250,
-        coins: 85,
-        badges: ["First Steps", "Math Master"],
-        completedChapters: ["physics-light", "mathematics-fractions", "biology-food-chain"]
+        name: "Arjun Kumar",
+        class: "8",
+        xp: 3250,
+        coins: 185,
+        badges: ["First Steps", "Math Master", "Science Star", "Quiz Champion"],
+        completedChapters: ["physics-light", "physics-electricity", "mathematics-fractions", "mathematics-lcm-hcf", "biology-food-chain", "chemistry-matter"]
       },
       {
         name: "Priya Sharma",
-        class: "6", 
-        xp: 980,
-        coins: 62,
-        badges: ["Explorer"],
-        completedChapters: ["chemistry-matter", "biology-food-chain"]
+        class: "8", 
+        xp: 2980,
+        coins: 162,
+        badges: ["Explorer", "Biology Expert", "Consistent Learner"],
+        completedChapters: ["chemistry-matter", "biology-food-chain", "biology-plants", "physics-light"]
       },
       {
-        name: "Amit Patel",
+        name: "Rohan Singh",
         class: "7",
-        xp: 1450,
-        coins: 95,
-        badges: ["First Steps", "Science Star", "Quiz Master"],
-        completedChapters: ["physics-light", "physics-electricity", "chemistry-matter", "mathematics-fractions"]
+        xp: 2750,
+        coins: 145,
+        badges: ["First Steps", "Physics Pro", "Circuit Master", "Problem Solver"],
+        completedChapters: ["physics-light", "physics-electricity", "physics-motion", "chemistry-matter", "mathematics-fractions"]
       },
       {
-        name: "Anita Singh", 
-        class: "6",
-        xp: 720,
-        coins: 48,
-        badges: ["First Steps"],
-        completedChapters: ["mathematics-fractions"]
+        name: "Anisha Rao", 
+        class: "8",
+        xp: 2450,
+        coins: 128,
+        badges: ["First Steps", "Accuracy Expert", "Streak Master"],
+        completedChapters: ["mathematics-fractions", "mathematics-lcm-hcf", "biology-food-chain"]
       },
       {
-        name: "Suresh Das",
+        name: "Vikram Joshi",
         class: "7",
-        xp: 1180,
-        coins: 78,
-        badges: ["Explorer", "Math Master"],
-        completedChapters: ["physics-light", "mathematics-fractions", "mathematics-lcm-hcf"]
+        xp: 2200,
+        coins: 115,
+        badges: ["Explorer", "Math Master", "Quick Learner"],
+        completedChapters: ["physics-light", "mathematics-fractions", "mathematics-lcm-hcf", "chemistry-matter"]
+      },
+      {
+        name: "Meera Gupta",
+        class: "8",
+        xp: 1980,
+        coins: 98,
+        badges: ["First Steps", "Chemistry Star"],
+        completedChapters: ["chemistry-matter", "chemistry-mixtures", "biology-food-chain"]
       }
     ];
 
@@ -86,21 +97,23 @@ const TeacherDashboard = () => {
 
   const exportData = () => {
     const csvContent = [
-      "Name,Class,XP,Coins,Badges,Completed Chapters,Games Completed",
-      ...students.map(student => 
-        `"${student.name}",${student.class},${student.xp},${student.coins},"${student.badges.join(', ')}","${student.completedChapters.join(', ')}",${student.completedChapters.length * 2}`
-      )
+      "Name,Class,XP,Level,Coins,Badges,Completed Chapters,Games Completed,Accuracy",
+      ...students.map(student => {
+        const level = Math.floor(student.xp / 200) + 1;
+        const accuracy = 85 + Math.floor(Math.random() * 15);
+        return `"${student.name}",${student.class},${student.xp},${level},${student.coins},"${student.badges.join(', ')}","${student.completedChapters.join(', ')}",${student.completedChapters.length * 2},${accuracy}%`;
+      })
     ].join('\n');
 
     const blob = new Blob([csvContent], { type: 'text/csv' });
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'student_progress_report.csv';
+    a.download = `student_progress_report_${new Date().toISOString().split('T')[0]}.csv`;
     a.click();
     window.URL.revokeObjectURL(url);
     
-    toast.success("Student data exported successfully!");
+    toast.success("Student data exported successfully! 📊");
   };
 
   const getSubjectProgress = (subject: string) => {
@@ -111,168 +124,143 @@ const TeacherDashboard = () => {
   };
 
   if (!teacherData) {
-    return <div className="min-h-screen bg-gradient-hero flex items-center justify-center">
-      <div className="text-white text-xl">Loading...</div>
-    </div>;
+    return (
+      <div className="min-h-screen bg-animated-gradient flex items-center justify-center">
+        <FloatingParticles />
+        <div className="text-white text-2xl title-futuristic">Loading...</div>
+      </div>
+    );
   }
 
   const totalXP = students.reduce((sum, student) => sum + student.xp, 0);
   const averageXP = students.length > 0 ? Math.round(totalXP / students.length) : 0;
   const topPerformer = students.reduce((prev, current) => (prev.xp > current.xp) ? prev : current, students[0]);
+  const totalGamesCompleted = students.reduce((sum, s) => sum + (s.completedChapters.length * 2), 0);
+  const activeToday = Math.floor(students.length * 0.75);
 
   return (
-    <div className="min-h-screen bg-gradient-hero">
-      <div className="max-w-7xl mx-auto px-6 py-12">
+    <div className="min-h-screen bg-animated-gradient">
+      <FloatingParticles />
+      
+      <div className="max-w-7xl mx-auto px-6 py-12 relative z-10">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
-          <Link to="/teacher/name" className="flex items-center text-white hover:text-white/80 transition-colors">
-            <ArrowLeft className="w-5 h-5 mr-2" />
-            Back
+          <Link to="/teacher/name" className="flex items-center text-white hover:text-white/80 transition-all duration-300 hover:scale-105">
+            <ArrowLeft className="w-6 h-6 mr-2" />
+            {t('back')}
           </Link>
           
           <Button 
             onClick={exportData}
-            className="bg-white/20 hover:bg-white/30 text-white border-white/30"
+            className="bg-card/50 hover:bg-card/70 text-primary border-2 border-primary/30 hover:border-primary hover:shadow-glow transition-all duration-300"
             variant="outline"
           >
-            <Download className="w-4 h-4 mr-2" />
-            Export CSV
+            <Download className="w-5 h-5 mr-2" />
+            {t('exportCSV')}
           </Button>
         </div>
 
         {/* Welcome Section */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-white mb-4">
-            Welcome, {teacherData.name}!
+          <h1 className="text-5xl font-bold text-primary mb-4 title-gaming animate-neon-pulse">
+            {t('welcomeTeacher')}, {teacherData.name}!
           </h1>
-          <p className="text-xl text-white/80 mb-2">{teacherData.school}</p>
-          <p className="text-white/60">Subject: {teacherData.subject}</p>
+          <p className="text-2xl text-secondary mb-2 title-futuristic">{teacherData.school}</p>
+          <p className="text-xl text-muted-foreground">Subject: {t(teacherData.subject)}</p>
         </div>
 
-        {/* Stats Overview */}
+        {/* Enhanced Stats Overview */}
         <div className="grid md:grid-cols-5 gap-6 mb-12">
-          <NeonCard glowColor="primary" className="p-6">
+          <Card className="gaming-card p-6 border-2 border-primary/30 hover:border-primary hover:shadow-glow">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-white/80 text-sm font-medium">Total Students</p>
-                <p className="text-4xl font-bold text-primary animate-neon-pulse">{students.length}</p>
+                <p className="text-muted-foreground text-sm font-medium mb-1">{t('totalStudents')}</p>
+                <p className="text-4xl font-bold text-primary animate-neon-pulse title-futuristic">{students.length}</p>
               </div>
-              <Users className="w-10 h-10 text-primary animate-float" />
-            </div>
-          </NeonCard>
-
-          <NeonCard glowColor="secondary" className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-white/80 text-sm font-medium">Average XP</p>
-                <p className="text-4xl font-bold text-secondary animate-neon-pulse">{averageXP}</p>
-              </div>
-              <TrendingUp className="w-10 h-10 text-secondary animate-float" />
-            </div>
-          </NeonCard>
-
-          <NeonCard glowColor="accent" className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-white/80 text-sm font-medium">Total Chapters</p>
-                <p className="text-4xl font-bold text-accent animate-neon-pulse">
-                  {students.reduce((sum, s) => sum + s.completedChapters.length, 0)}
-                </p>
-              </div>
-              <BookOpen className="w-10 h-10 text-accent animate-float" />
-            </div>
-          </NeonCard>
-
-          <NeonCard glowColor="physics" className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-white/80 text-sm font-medium">Games Completed</p>
-                <p className="text-4xl font-bold text-physics animate-neon-pulse">
-                  {students.reduce((sum, s) => sum + (s.completedChapters.length * 2), 0)}
-                </p>
-              </div>
-              <span className="text-3xl animate-float">🎮</span>
-            </div>
-          </NeonCard>
-
-          <NeonCard glowColor="chemistry" className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-white/80 text-sm font-medium">Active Today</p>
-                <p className="text-4xl font-bold text-chemistry animate-neon-pulse">{Math.floor(students.length * 0.7)}</p>
-              </div>
-              <Clock className="w-10 h-10 text-chemistry animate-float" />
-            </div>
-          </NeonCard>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-8">
-          {/* Leaderboard */}
-          <Card className="p-6 bg-white/10 backdrop-blur-sm border-0">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-white">Student Leaderboard</h2>
-              <Trophy className="w-6 h-6 text-yellow-400" />
-            </div>
-            
-            <div className="space-y-4">
-              {students
-                .sort((a, b) => b.xp - a.xp)
-                .slice(0, 10)
-                .map((student, index) => (
-                <div key={student.name} className="flex items-center justify-between p-4 bg-white/10 rounded-lg">
-                  <div className="flex items-center space-x-4">
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
-                      index === 0 ? 'bg-yellow-400 text-black' :
-                      index === 1 ? 'bg-gray-300 text-black' :
-                      index === 2 ? 'bg-amber-600 text-white' :
-                      'bg-white/20 text-white'
-                    }`}>
-                      {index + 1}
-                    </div>
-                    <div>
-                      <p className="font-semibold text-white">{student.name}</p>
-                      <p className="text-white/60 text-sm">Class {student.class}</p>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <p className="font-bold text-white">{student.xp} XP</p>
-                    <p className="text-white/60 text-sm">{student.badges.length} badges</p>
-                  </div>
-                </div>
-              ))}
+              <Users className="w-12 h-12 text-primary animate-float" />
             </div>
           </Card>
 
+          <Card className="gaming-card p-6 border-2 border-secondary/30 hover:border-secondary hover:shadow-glow-secondary">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-muted-foreground text-sm font-medium mb-1">{t('averageXP')}</p>
+                <p className="text-4xl font-bold text-secondary animate-neon-pulse title-futuristic">{averageXP}</p>
+              </div>
+              <TrendingUp className="w-12 h-12 text-secondary animate-float" />
+            </div>
+          </Card>
+
+          <Card className="gaming-card p-6 border-2 border-accent/30 hover:border-accent hover:shadow-glow-accent">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-muted-foreground text-sm font-medium mb-1">{t('totalChapters')}</p>
+                <p className="text-4xl font-bold text-accent animate-neon-pulse title-futuristic">
+                  {students.reduce((sum, s) => sum + s.completedChapters.length, 0)}
+                </p>
+              </div>
+              <BookOpen className="w-12 h-12 text-accent animate-float" />
+            </div>
+          </Card>
+
+          <Card className="gaming-card p-6 border-2 border-physics/30 hover:border-physics hover:shadow-glow-physics">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-muted-foreground text-sm font-medium mb-1">{t('gamesCompleted')}</p>
+                <p className="text-4xl font-bold text-physics animate-neon-pulse title-futuristic">{totalGamesCompleted}</p>
+              </div>
+              <span className="text-4xl animate-float">🎮</span>
+            </div>
+          </Card>
+
+          <Card className="gaming-card p-6 border-2 border-chemistry/30 hover:border-chemistry hover:shadow-glow-chemistry">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-muted-foreground text-sm font-medium mb-1">{t('activeToday')}</p>
+                <p className="text-4xl font-bold text-chemistry animate-neon-pulse title-futuristic">{activeToday}</p>
+              </div>
+              <Clock className="w-12 h-12 text-chemistry animate-float" />
+            </div>
+          </Card>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Enhanced Leaderboard */}
+          <GamingLeaderboard />
+
           {/* Subject Progress */}
-          <Card className="p-6 bg-white/10 backdrop-blur-sm border-0">
+          <Card className="gaming-card p-6 border-2 border-primary/30 hover:border-primary/60 shadow-glow">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-white">Subject Progress</h2>
-              <BarChart3 className="w-6 h-6 text-blue-400" />
+              <h2 className="text-2xl font-bold text-primary title-futuristic">{t('subjectProgress')}</h2>
+              <BarChart3 className="w-8 h-8 text-primary animate-neon-pulse" />
             </div>
             
             <div className="space-y-6">
               {[
-                { name: 'Physics', key: 'physics', color: 'bg-blue-400', icon: '⚡' },
-                { name: 'Chemistry', key: 'chemistry', color: 'bg-green-400', icon: '🧪' },
-                { name: 'Biology', key: 'biology', color: 'bg-orange-400', icon: '🌱' },
-                { name: 'Mathematics', key: 'mathematics', color: 'bg-purple-400', icon: '🔢' }
+                { name: t('physics'), key: 'physics', color: 'bg-physics', icon: '⚡', textColor: 'text-physics' },
+                { name: t('chemistry'), key: 'chemistry', color: 'bg-chemistry', icon: '🧪', textColor: 'text-chemistry' },
+                { name: t('biology'), key: 'biology', color: 'bg-biology', icon: '🌱', textColor: 'text-biology' },
+                { name: t('mathematics'), key: 'mathematics', color: 'bg-mathematics', icon: '🔢', textColor: 'text-mathematics' }
               ].map(subject => {
                 const progress = getSubjectProgress(subject.key);
-                const maxProgress = students.length * 2; // Assuming 2 chapters per subject for demo
+                const maxProgress = students.length * 3; // Assuming 3 chapters per subject
                 const percentage = maxProgress > 0 ? (progress / maxProgress) * 100 : 0;
                 
                 return (
                   <div key={subject.key}>
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center space-x-2">
-                        <span className="text-2xl">{subject.icon}</span>
-                        <span className="text-white font-medium">{subject.name}</span>
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center space-x-3">
+                        <span className="text-3xl animate-float">{subject.icon}</span>
+                        <span className={`font-bold text-lg title-futuristic ${subject.textColor}`}>{subject.name}</span>
                       </div>
-                      <span className="text-white/60 text-sm">{progress} completions</span>
+                      <div className="text-right">
+                        <span className={`font-bold ${subject.textColor}`}>{progress}</span>
+                        <span className="text-muted-foreground text-sm ml-1">{t('completions')}</span>
+                      </div>
                     </div>
-                    <div className="bg-white/20 rounded-full h-3">
+                    <div className="bg-muted/30 rounded-full h-4 overflow-hidden border border-muted/50">
                       <div 
-                        className={`${subject.color} rounded-full h-3 transition-all duration-500`}
+                        className={`${subject.color} rounded-full h-4 transition-all duration-1000 shadow-glow animate-neon-pulse`}
                         style={{ width: `${Math.min(percentage, 100)}%` }}
                       />
                     </div>
@@ -280,23 +268,49 @@ const TeacherDashboard = () => {
                 );
               })}
             </div>
+
+            {/* Additional Analytics */}
+            <div className="mt-8 pt-6 border-t border-border">
+              <h3 className="text-lg font-bold text-secondary mb-4 title-futuristic">📈 Quick Stats</h3>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="text-center p-4 bg-card/30 rounded-lg border border-primary/20">
+                  <div className="text-2xl font-bold text-primary title-futuristic">
+                    {Math.round((students.reduce((sum, s) => sum + s.completedChapters.length, 0) / (students.length * 12)) * 100)}%
+                  </div>
+                  <div className="text-sm text-muted-foreground">Overall Progress</div>
+                </div>
+                <div className="text-center p-4 bg-card/30 rounded-lg border border-secondary/20">
+                  <div className="text-2xl font-bold text-secondary title-futuristic">
+                    {students.reduce((sum, s) => sum + s.badges.length, 0)}
+                  </div>
+                  <div className="text-sm text-muted-foreground">Total {t('badges')}</div>
+                </div>
+              </div>
+            </div>
           </Card>
         </div>
 
         {/* Top Performer Highlight */}
         {topPerformer && (
-          <Card className="mt-8 p-6 bg-gradient-to-r from-yellow-400/20 to-orange-400/20 backdrop-blur-sm border-0">
+          <Card className="mt-8 p-8 bg-gradient-to-r from-badge-gold/20 via-badge-gold/10 to-transparent border-2 border-badge-gold/40 shadow-[0_0_40px_hsl(var(--badge-gold)/0.3)] hover:shadow-[0_0_60px_hsl(var(--badge-gold)/0.4)] transition-all duration-500">
             <div className="text-center">
-              <Trophy className="w-12 h-12 text-yellow-400 mx-auto mb-4" />
-              <h3 className="text-2xl font-bold text-white mb-2">Top Performer</h3>
-              <p className="text-xl text-white/90 mb-2">{topPerformer.name}</p>
-              <p className="text-white/70 mb-4">Class {topPerformer.class} • {topPerformer.xp} XP • {topPerformer.badges.length} badges</p>
-              <div className="flex justify-center space-x-2">
-                {topPerformer.badges.map(badge => (
-                  <Badge key={badge} className="bg-yellow-400/20 text-yellow-200 border-yellow-400/30">
+              <Crown className="w-16 h-16 text-badge-gold mx-auto mb-6 animate-glow-rotate" />
+              <h3 className="text-3xl font-bold text-badge-gold mb-4 title-gaming animate-neon-pulse">👑 {t('topPerformer')}</h3>
+              <p className="text-2xl text-foreground mb-2 title-futuristic">{topPerformer.name}</p>
+              <p className="text-lg text-muted-foreground mb-6">
+                Class {topPerformer.class} • {topPerformer.xp} XP • Level {Math.floor(topPerformer.xp / 200) + 1}
+              </p>
+              <div className="flex justify-center space-x-4">
+                {topPerformer.badges.slice(0, 4).map(badge => (
+                  <Badge key={badge} className="bg-badge-gold/20 text-badge-gold border-badge-gold/30 px-4 py-2 text-sm font-semibold">
                     {badge}
                   </Badge>
                 ))}
+                {topPerformer.badges.length > 4 && (
+                  <Badge className="bg-badge-gold/20 text-badge-gold border-badge-gold/30 px-4 py-2 text-sm font-semibold">
+                    +{topPerformer.badges.length - 4} more
+                  </Badge>
+                )}
               </div>
             </div>
           </Card>
